@@ -96,12 +96,14 @@ const projects: ProjectData[] = [
     solution: [
       "Condução de discovery com áreas de negócio",
       "Desenvolvimento de pipelines para ingestão de arquivos Excel",
+      "Utilização do Databricks como plataforma principal de engenharia de dados",
+      "Desenvolvimento de pipelines e transformações com PySpark no Databricks",
       "Estruturação em camadas: Raw, HMZ (tratamento) e VWs (consumo)",
       "Padronização de nomenclaturas e governança",
       "Integração com fluxo analítico até BI",
       "Gestão de entregas via Azure DevOps (Boards/Sprints)",
     ],
-    tags: ["Excel", "Data Factory", "PySpark", "SQL", "Azure DevOps"],
+    tags: ["Excel", "Databricks", "Data Factory", "PySpark", "SQL", "Azure DevOps"],
     results: [
       "Centralização e padronização dos dados",
       "Redução de erros manuais",
