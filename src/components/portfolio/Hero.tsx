@@ -83,7 +83,7 @@ const Hero = () => {
             className="glass border-0 rounded-full hover:bg-primary/20 transition-colors"
             asChild
           >
-            <a href="https://github.com/vitormarinho" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/VitorSMarinho" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5" />
             </a>
           </Button>
@@ -93,7 +93,7 @@ const Hero = () => {
             className="glass border-0 rounded-full hover:bg-primary/20 transition-colors"
             asChild
           >
-            <a href="https://linkedin.com/in/vitormarinho" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/vitor-marinho/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-5 h-5" />
             </a>
           </Button>
@@ -103,7 +103,7 @@ const Hero = () => {
             className="glass border-0 rounded-full hover:bg-primary/20 transition-colors"
             asChild
           >
-            <a href="mailto:vitor@email.com">
+            <a href="mailto:vtechdata.solutions@outlook.com.br">
               <Mail className="w-5 h-5" />
             </a>
           </Button>
