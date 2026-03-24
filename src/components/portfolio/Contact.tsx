@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Contact = () => {
@@ -27,18 +27,23 @@ const Contact = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Button className="glass border-0 rounded-full px-6 gap-2 hover:bg-primary/20" variant="outline" asChild>
-            <a href="mailto:vitor@email.com">
+            <a href="mailto:vtechdata.solutions@outlook.com.br">
               <Mail className="w-4 h-4" /> E-mail
             </a>
           </Button>
           <Button className="glass border-0 rounded-full px-6 gap-2 hover:bg-primary/20" variant="outline" asChild>
-            <a href="https://linkedin.com/in/vitormarinho" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/vitor-marinho/" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4" /> LinkedIn
             </a>
           </Button>
           <Button className="glass border-0 rounded-full px-6 gap-2 hover:bg-primary/20" variant="outline" asChild>
-            <a href="https://github.com/vitormarinho" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/VitorSMarinho" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4" /> GitHub
+            </a>
+          </Button>
+          <Button className="glass border-0 rounded-full px-6 gap-2 hover:bg-primary/20" variant="outline" asChild>
+            <a href="https://wa.me/5516997384472" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-4 h-4" /> WhatsApp
             </a>
           </Button>
         </motion.div>
