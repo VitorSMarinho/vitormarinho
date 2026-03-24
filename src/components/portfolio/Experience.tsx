@@ -8,10 +8,12 @@ const experiences = [
     period: "2023 — Presente",
     items: [
       "Construção de pipelines end-to-end utilizando PySpark e Azure Data Factory para processamento de dados estruturados e não estruturados em arquitetura Medallion (Bronze → Silver → Gold).",
-      "Migração completa de workloads do Azure Synapse Analytics para o Microsoft Fabric, reestruturando notebooks, pipelines e camadas de dados com ganhos de performance e redução de custo operacional.",
-      "Desenvolvimento e manutenção de Lakehouses no Databricks e Microsoft Fabric, utilizando Delta Lake para versionamento, controle de schema e otimização de leituras analíticas.",
-      "Implementação de rotinas de qualidade de dados e monitoramento de pipelines com alertas automatizados, garantindo integridade e rastreabilidade dos processos de ingestão.",
-      "Criação de views e tabelas otimizadas para consumo por áreas de negócio e ferramentas de BI (Power BI), garantindo dados confiáveis e atualizados.",
+      "Atuação na migração de workloads do Azure Synapse Analytics para Microsoft Fabric, incluindo reestruturação de pipelines, notebooks e camadas de dados com foco em performance e escalabilidade.",
+      "Desenvolvimento e manutenção de Lakehouses no Databricks e Microsoft Fabric, utilizando Delta Lake para versionamento, controle de schema e otimização de consultas.",
+      "Implementação de rotinas de qualidade de dados e monitoramento de pipelines, com alertas automatizados para garantir integridade e rastreabilidade.",
+      "Automação de ingestão de dados utilizando Azure Logic Apps e Data Lake, reduzindo processos manuais.",
+      "Criação de views e tabelas otimizadas para consumo em BI (Power BI), garantindo confiabilidade e atualização dos dados.",
+      "Suporte e otimização contínua de pipelines em ambiente produtivo, garantindo estabilidade e eficiência operacional.",
     ],
   },
 ];

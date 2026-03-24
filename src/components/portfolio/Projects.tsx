@@ -1,22 +1,114 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Database, Workflow } from "lucide-react";
+import { ArrowUpRight, Database, Workflow, Mail, Settings, FileSpreadsheet } from "lucide-react";
 
-const projects = [
+interface ProjectData {
+  icon: typeof Workflow;
+  title: string;
+  context: string;
+  problem?: string[];
+  solution: string[];
+  tags: string[];
+  results: string[];
+  color: string;
+}
+
+const projects: ProjectData[] = [
   {
     icon: Workflow,
-    title: "Migração Synapse → Microsoft Fabric",
-    description:
-      "Transição completa de pipelines, notebooks e camadas de dados do Azure Synapse Analytics para o Microsoft Fabric, reestruturando a arquitetura de ingestão e transformação com foco em performance e redução de custo operacional.",
-    tags: ["Microsoft Fabric", "Synapse", "PySpark", "Delta Lake", "Data Factory"],
+    title: "Migração de Dados: Synapse → Microsoft Fabric",
+    context:
+      "Ambiente analítico apresentava limitações de performance e alto tempo de resposta em execuções críticas, impactando o consumo de dados pelas áreas de negócio.",
+    problem: [
+      "Lentidão em pipelines e consultas",
+      "Baixa eficiência no processamento de dados",
+      "Limitações de escalabilidade no ambiente Synapse",
+    ],
+    solution: [
+      "Migração gradual (micro → macro) de workloads do Azure Synapse para Microsoft Fabric",
+      "Reestruturação da arquitetura no padrão Medallion (Bronze, Silver, Gold)",
+      "Implementação de pipelines com PySpark e Data Factory",
+      "Definição de governança de acesso (RBAC) por área e nível de senioridade",
+      "Validação controlada por domínio de negócio antes da entrada em produção",
+    ],
+    tags: ["Microsoft Fabric", "Azure Synapse", "PySpark", "Data Factory", "Delta Lake", "RBAC"],
+    results: [
+      "Redução significativa no tempo de execução dos pipelines",
+      "Melhoria de performance no consumo de dados",
+      "Aumento da confiabilidade do ambiente produtivo",
+      "Estrutura escalável e padronizada",
+    ],
     color: "from-primary to-secondary",
   },
   {
-    icon: Database,
-    title: "Arquitetura Lakehouse em Databricks",
-    description:
-      "Implementação de arquitetura Medallion (Bronze → Silver → Gold) em Databricks com Delta Lake, incluindo rotinas de qualidade de dados, controle de schema evolution e otimização de consultas analíticas para consumo via Power BI.",
-    tags: ["Databricks", "Delta Lake", "PySpark", "Medallion", "Power BI"],
+    icon: Mail,
+    title: "Automação de Ingestão de Dados via E-mail",
+    context:
+      "Processo manual de recebimento de arquivos via e-mail, gerando atrasos e riscos operacionais.",
+    problem: [
+      "Dependência de processos manuais",
+      "Risco de erro humano",
+      "Baixa rastreabilidade dos dados",
+    ],
+    solution: [
+      "Automação da ingestão utilizando Azure Logic Apps para captura de anexos",
+      "Armazenamento automático em Data Lake (Storage)",
+      "Ingestão em camada raw, transformação e padronização (Silver)",
+      "Arquitetura orientada a baixo custo e alta confiabilidade",
+    ],
+    tags: ["Azure Logic Apps", "Data Lake", "Data Factory", "PySpark"],
+    results: [
+      "Eliminação de processos manuais",
+      "Redução de erros operacionais",
+      "Disponibilização automatizada diária dos dados",
+      "Maior rastreabilidade e confiabilidade",
+    ],
     color: "from-accent to-primary",
+  },
+  {
+    icon: Settings,
+    title: "Sustentação e Otimização de Pipelines de Dados",
+    context:
+      "Ambiente com múltiplos pipelines e alta dependência entre áreas de negócio.",
+    solution: [
+      "Monitoramento contínuo de pipelines",
+      "Identificação e correção de falhas",
+      "Otimização de performance",
+      "Suporte técnico às áreas envolvidas",
+    ],
+    tags: ["Data Factory", "PySpark", "Delta Lake", "Monitoring"],
+    results: [
+      "Maior estabilidade dos processos",
+      "Redução de falhas em produção",
+      "Aumento da eficiência operacional",
+    ],
+    color: "from-secondary to-accent",
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "Estruturação de Dados a partir de Planilhas Excel",
+    context:
+      "Dados descentralizados em planilhas Excel, manipulados manualmente por diferentes áreas.",
+    problem: [
+      "Falta de padronização",
+      "Alto risco de inconsistência",
+      "Baixa confiabilidade dos dados",
+    ],
+    solution: [
+      "Condução de discovery com áreas de negócio",
+      "Desenvolvimento de pipelines para ingestão de arquivos Excel",
+      "Estruturação em camadas: Raw, HMZ (tratamento) e VWs (consumo)",
+      "Padronização de nomenclaturas e governança",
+      "Integração com fluxo analítico até BI",
+      "Gestão de entregas via Azure DevOps (Boards/Sprints)",
+    ],
+    tags: ["Excel", "Data Factory", "PySpark", "SQL", "Azure DevOps"],
+    results: [
+      "Centralização e padronização dos dados",
+      "Redução de erros manuais",
+      "Aumento da confiabilidade das informações",
+      "Disponibilização estruturada para BI",
+    ],
+    color: "from-primary to-accent",
   },
 ];
 
@@ -56,8 +148,52 @@ const Projects = () => {
                 </div>
 
                 <h4 className="text-xl font-semibold mb-3">{project.title}</h4>
-                <p className="text-foreground/65 text-sm leading-relaxed mb-6">{project.description}</p>
 
+                {/* Contexto */}
+                <p className="text-foreground/65 text-sm leading-relaxed mb-4">{project.context}</p>
+
+                {/* Problema */}
+                {project.problem && (
+                  <div className="mb-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Problema</p>
+                    <ul className="space-y-1">
+                      {project.problem.map((item, j) => (
+                        <li key={j} className="flex items-start gap-2 text-foreground/60 text-sm">
+                          <span className="w-1 h-1 rounded-full bg-destructive/60 mt-2 shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Solução */}
+                <div className="mb-4">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Solução</p>
+                  <ul className="space-y-1">
+                    {project.solution.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-foreground/65 text-sm">
+                        <span className="w-1 h-1 rounded-full bg-primary/60 mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Resultados */}
+                <div className="mb-5">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Resultado</p>
+                  <ul className="space-y-1">
+                    {project.results.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-foreground/65 text-sm">
+                        <span className="w-1 h-1 rounded-full bg-secondary/80 mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
