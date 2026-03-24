@@ -94,7 +94,6 @@ const projects: ProjectData[] = [
       "Baixa confiabilidade dos dados",
     ],
     solution: [
-      "Condução de discovery com áreas de negócio",
       "Desenvolvimento de pipelines para ingestão de arquivos Excel",
       "Utilização do Databricks como plataforma principal de engenharia de dados",
       "Desenvolvimento de pipelines e transformações com PySpark no Databricks",
