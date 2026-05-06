@@ -4,16 +4,16 @@ import { Briefcase } from "lucide-react";
 const experiences = [
   {
     role: "Engenheiro de Dados",
-    company: "Empresa Atual",
+    company: "UPBI Data Analytics",
     period: "2023 — Presente",
     items: [
-      "Construção de pipelines end-to-end utilizando PySpark e Azure Data Factory para processamento de dados estruturados e não estruturados em arquitetura Medallion (Bronze → Silver → Gold).",
-      "Atuação na migração de workloads do Azure Synapse Analytics para Microsoft Fabric, incluindo reestruturação de pipelines, notebooks e camadas de dados com foco em performance e escalabilidade.",
-      "Desenvolvimento e manutenção de Lakehouses no Databricks e Microsoft Fabric, utilizando Delta Lake para versionamento, controle de schema e otimização de consultas.",
-      "Implementação de rotinas de qualidade de dados e monitoramento de pipelines, com alertas automatizados para garantir integridade e rastreabilidade.",
-      "Automação de ingestão de dados utilizando Azure Logic Apps e Data Lake, reduzindo processos manuais.",
-      "Criação de views e tabelas otimizadas para consumo em BI (Power BI), garantindo confiabilidade e atualização dos dados.",
-      "Suporte e otimização contínua de pipelines em ambiente produtivo, garantindo estabilidade e eficiência operacional.",
+      "Construção e orquestração de pipelines ETL/ELT escaláveis com PySpark, SQL e Azure Data Factory, realizando ingestão de dados de múltiplas fontes (SAP, SharePoint, Excel) nas camadas Bronze, Silver e Gold (Medallion Architecture) no Databricks.",
+      "Atuação em projeto de Big Data com processamento distribuído, garantindo qualidade, rastreabilidade e performance dos dados em escala para suporte a decisões de negócio.",
+      "Participação direta na migração completa de workloads Synapse → Microsoft Fabric, com foco em governança, segurança, performance e validação de integridade pós-migração.",
+      "Monitoramento proativo e resolução de incidentes em pipelines com Azure Monitor e Log Analytics, configurando alertas para garantir continuidade operacional.",
+      "Automação de fluxos operacionais com Logic Apps integrados a pipelines de CI/CD via Azure DevOps e GitHub Actions, reduzindo intervenções manuais.",
+      "Colaboração com arquitetos, engenheiros e stakeholders para levantamento de requisitos e definição de soluções alinhadas à visão de negócio.",
+      "Aplicação de práticas de governança de dados, controle de acessos (RBAC) e padronização de ambientes e documentação técnica.",
     ],
   },
 ];
