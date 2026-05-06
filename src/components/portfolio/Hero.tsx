@@ -61,7 +61,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          {["Azure", "Microsoft Fabric", "Databricks", "PySpark", "ETL/ELT"].map((tag) => (
+          {["Big Data", "Databricks", "Azure", "AWS", "ETL/ELT"].map((tag) => (
             <span
               key={tag}
               className="glass px-3 py-1 rounded-full text-sm text-foreground/80"
