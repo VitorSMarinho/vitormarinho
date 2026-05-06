@@ -36,6 +36,7 @@ const projects: ProjectData[] = [
       "Melhoria de performance no consumo de dados",
       "Aumento da confiabilidade do ambiente produtivo",
       "Estrutura escalável e padronizada",
+      "Validação de integridade dos dados pós-migração com testes de regressão e documentação técnica",
     ],
     color: "from-primary to-secondary",
   },
@@ -74,6 +75,7 @@ const projects: ProjectData[] = [
       "Identificação e correção de falhas",
       "Otimização de performance",
       "Suporte técnico às áreas envolvidas",
+      "Monitoramento via Azure Monitor e Log Analytics com alertas automatizados para rastreabilidade",
     ],
     tags: ["Data Factory", "PySpark", "Delta Lake", "Monitoring"],
     results: [

@@ -22,12 +22,13 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="text-foreground/80 leading-relaxed text-lg">
-            Engenheiro de Dados com atuação em ambientes cloud Azure, especializado na construção de 
-            pipelines de dados escaláveis, arquiteturas Lakehouse (Medallion) e processamento distribuído 
-            com PySpark. Experiência prática na migração de workloads do Azure Synapse para o Microsoft 
-            Fabric, otimização de processos de ETL/ELT e modelagem de dados com Delta Lake. Atuação com 
-            autonomia em projetos de ingestão, transformação e orquestração de dados, contribuindo 
-            diretamente para a melhoria de performance, governança e confiabilidade de ambientes analíticos.
+            Engenheiro de Dados com experiência em construção de pipelines ETL/ELT escaláveis, arquitetura
+            Lakehouse (Medallion) e processamento distribuído com PySpark e Databricks. Experiência com SQL
+            avançado, Python, Azure Data Factory e AWS (S3, Redshift, Glue). Atuação em projetos reais de
+            migração de workloads para cloud, automação de fluxos com CI/CD via Azure DevOps e GitHub Actions,
+            e monitoramento proativo de pipelines com Azure Monitor e Log Analytics. Perfil orientado a
+            resultados, com visão de negócio para traduzir necessidades dos stakeholders em soluções de dados
+            estratégicas.
           </p>
         </motion.div>
       </div>
