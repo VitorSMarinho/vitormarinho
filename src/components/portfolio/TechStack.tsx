@@ -7,7 +7,7 @@ const categories = [
   },
   {
     name: "Cloud & Plataformas",
-    techs: ["Azure", "Microsoft Fabric", "Databricks", "Azure Data Factory", "Azure Synapse"],
+    techs: ["Azure", "AWS", "Microsoft Fabric", "Databricks", "Azure Data Factory", "Azure Synapse"],
   },
   {
     name: "Processamento & Pipelines",
@@ -15,7 +15,7 @@ const categories = [
   },
   {
     name: "Bancos de Dados",
-    techs: ["SQL Server", "PostgreSQL", "MySQL"],
+    techs: ["Azure SQL", "Oracle", "SQL Server"],
   },
   {
     name: "Arquitetura & Modelagem",
@@ -23,7 +23,7 @@ const categories = [
   },
   {
     name: "DevOps & Monitoramento",
-    techs: ["Git", "Azure DevOps", "CI/CD"],
+    techs: ["Git", "Azure DevOps", "CI/CD", "GitHub Actions", "Azure Monitor", "Log Analytics"],
   },
 ];
 
