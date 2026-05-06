@@ -5,7 +5,7 @@ const experiences = [
   {
     role: "Engenheiro de Dados",
     company: "UPBI Data Analytics",
-    period: "2023 — Presente",
+    period: "Ago/2023 — Mar/2025 · PJ",
     items: [
       "Construção e orquestração de pipelines ETL/ELT escaláveis com PySpark, SQL e Azure Data Factory, realizando ingestão de dados de múltiplas fontes (SAP, SharePoint, Excel) nas camadas Bronze, Silver e Gold (Medallion Architecture) no Databricks.",
       "Atuação em projeto de Big Data com processamento distribuído, garantindo qualidade, rastreabilidade e performance dos dados em escala para suporte a decisões de negócio.",
