@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Database, Workflow, Mail, Settings, FileSpreadsheet } from "lucide-react";
+import { ArrowUpRight, Database, Workflow, Mail, Settings, FileSpreadsheet, Brain, ExternalLink } from "lucide-react";
 
 interface ProjectData {
   icon: typeof Workflow;
@@ -10,9 +10,55 @@ interface ProjectData {
   tags: string[];
   results: string[];
   color: string;
+  demoUrl?: string;
 }
 
 const projects: ProjectData[] = [
+  {
+    icon: Brain,
+    title: "ARIA — Plataforma de Inteligência de Dados e Agentes de IA para Saúde",
+    context:
+      "Desenvolvimento de uma plataforma de inteligência de dados e agentes de IA para centros oncológicos, simulando um cenário real de instituto de saúde brasileiro com múltiplas unidades, onde a fragmentação de dados clínicos, operacionais e financeiros impactava diretamente a tomada de decisão médica e a eficiência operacional.",
+    problem: [
+      "Dados distribuídos em silos e sistemas desconectados",
+      "Ausência de indicadores em tempo real",
+      "Dificuldade para auditoria clínica e operacional",
+      "Baixa visibilidade sobre estoque e financeiro",
+      "Dependência de processos manuais para tomada de decisão",
+    ],
+    solution: [
+      "Arquitetura Medallion no Databricks (Bronze, Silver e Gold)",
+      "Pipelines de ingestão e transformação com Python e PySpark",
+      "Agentes de IA especializados (clínico, financeiro, operacional, estratégico e de estoque) com LangChain + CrewAI",
+      "Camada de disponibilização via Supabase (PostgreSQL)",
+      "API REST com FastAPI para consumo de dados em tempo real, publicada em produção no Render.com",
+      "Integração com LLMs via Groq e Claude API para análises inteligentes",
+      "Controle de acesso baseado em perfil de usuário e versionamento com Git/GitHub",
+    ],
+    tags: [
+      "Databricks",
+      "PySpark",
+      "Python",
+      "FastAPI",
+      "Supabase",
+      "PostgreSQL",
+      "LangChain",
+      "CrewAI",
+      "Groq",
+      "Claude API",
+      "Medallion",
+    ],
+    results: [
+      "Centralização de dados clínicos, financeiros e operacionais",
+      "Disponibilização de insights inteligentes em tempo real",
+      "Solução enterprise construída integralmente com stack 100% gratuita",
+      "Agentes autônomos especializados por domínio de negócio",
+      "Arquitetura escalável, auditável e replicável para outros setores",
+      "Integração prática entre Engenharia de Dados e IA Generativa",
+    ],
+    color: "from-accent to-secondary",
+    demoUrl: "https://clinical-wisdom-web.lovable.app",
+  },
   {
     icon: Workflow,
     title: "Migração de Dados: Synapse → Microsoft Fabric",
@@ -207,6 +253,21 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+
+                {/* Demo link */}
+                {project.demoUrl && (
+                  <div className="mt-5">
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-primary hover:text-primary-foreground hover:bg-primary/90 transition-colors"
+                    >
+                      Acessar demo
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
