@@ -253,6 +253,21 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
+
+                {/* Demo link */}
+                {project.demoUrl && (
+                  <div className="mt-5">
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-primary hover:text-primary-foreground hover:bg-primary/90 transition-colors"
+                    >
+                      Acessar demo
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
