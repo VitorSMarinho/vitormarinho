@@ -21,14 +21,23 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
+          <p className="text-foreground/80 leading-relaxed text-lg mb-4">
+            Engenheiro de Dados com experiência real em pipelines ETL/ELT escaláveis, arquitetura Lakehouse
+            (Medallion) e processamento distribuído com PySpark e Databricks. Domínio de SQL avançado, Python,
+            Azure Data Factory e AWS (S3, Redshift, Glue), com atuação em migração de workloads para cloud,
+            automação de CI/CD (Azure DevOps, GitHub Actions) e monitoramento proativo com Azure Monitor e Log
+            Analytics.
+          </p>
+          <p className="text-foreground/80 leading-relaxed text-lg mb-4">
+            Em paralelo, fundei a <span className="text-primary font-medium">Agient Brasil</span>, onde uso
+            essa mesma base técnica para construir produtos completos, do frontend ao banco de dados, com
+            agentes de IA como parceiros de desenvolvimento. Hoje tenho 4 produtos meus em produção e um
+            cliente pagante real usando no dia a dia o que construí.
+          </p>
           <p className="text-foreground/80 leading-relaxed text-lg">
-            Engenheiro de Dados com experiência em construção de pipelines ETL/ELT escaláveis, arquitetura
-            Lakehouse (Medallion) e processamento distribuído com PySpark e Databricks. Experiência com SQL
-            avançado, Python, Azure Data Factory e AWS (S3, Redshift, Glue). Atuação em projetos reais de
-            migração de workloads para cloud, automação de fluxos com CI/CD via Azure DevOps e GitHub Actions,
-            e monitoramento proativo de pipelines com Azure Monitor e Log Analytics. Perfil orientado a
-            resultados, com visão de negócio para traduzir necessidades dos stakeholders em soluções de dados
-            estratégicas.
+            Meu perfil é orientado a resultado. Seja destravando um pipeline crítico em produção ou tirando um
+            produto do papel sozinho, a entrega é sempre a mesma: solução no ar, estável e alinhada ao que o
+            negócio realmente precisa.
           </p>
         </motion.div>
       </div>
