@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, Database, Workflow, Mail, Settings, FileSpreadsheet, Brain, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Database, Workflow, Mail, Settings, FileSpreadsheet, Brain, ExternalLink, Rocket, Stethoscope, MapPin, ShieldCheck } from "lucide-react";
 
 interface ProjectData {
   icon: typeof Workflow;
@@ -58,6 +58,105 @@ const projects: ProjectData[] = [
     ],
     color: "from-accent to-secondary",
     demoUrl: "https://clinical-wisdom-web.lovable.app",
+  },
+  {
+    icon: Rocket,
+    title: "Agient Brasil — Empresa de Automação e IA para Negócios",
+    context:
+      "Empresa que fundei em 2026 para levar automação e inteligência artificial a negócios locais, unindo experiência em engenharia de dados com construção de produtos ponta a ponta usando agentes de IA como parceiros de desenvolvimento.",
+    problem: [
+      "Pequenas e médias empresas sem acesso a automação sob medida",
+      "Processos manuais consumindo tempo que devia ir para o crescimento do negócio",
+      "Falta de indicadores para decisão",
+    ],
+    solution: [
+      "Landing page e posicionamento de marca construídos com Next.js e Tailwind",
+      "SEO técnico (sitemap, robots, JSON-LD) e domínio próprio (agient.com.br)",
+      "Agente de IA para qualificação de leads via n8n + Groq + Supabase",
+      "Metodologia de diagnóstico, construção e evolução por módulos (AGIENT Core)",
+    ],
+    tags: ["Next.js", "Tailwind", "n8n", "Groq", "Supabase", "SEO técnico"],
+    results: [
+      "Empresa no ar em produção, domínio próprio ativo",
+      "Primeiro piloto pago fechado (Conexão Sutil)",
+      "Agente de qualificação de leads em desenvolvimento",
+    ],
+    color: "from-primary to-accent",
+    demoUrl: "https://agient.com.br",
+  },
+  {
+    icon: Stethoscope,
+    title: "Conexão Sutil — Site e Painel de Gestão para Clínica",
+    context:
+      "Primeiro piloto pago da Agient: site institucional e painel administrativo para uma clínica de terapias real, substituindo controle manual por uma ferramenta única de agenda, financeiro e gestão de terapeutas.",
+    problem: [
+      "Agenda e financeiro controlados em planilhas soltas",
+      "Falta de histórico por sessão e por paciente",
+      "Sem visão consolidada de faturamento mês a mês",
+    ],
+    solution: [
+      "Site institucional com apresentação da clínica e dos terapeutas",
+      "Painel administrativo com financeiro mês a mês e soft-delete de registros",
+      "Ficha de paciente com memória por sessão para apoiar o terapeuta",
+      "Fluxo de cancelamento de pedidos com baixa de estoque",
+    ],
+    tags: ["Next.js", "Supabase", "Painel administrativo"],
+    results: [
+      "No ar em produção, testado com o cliente real",
+      "Financeiro mensal automatizado, sem planilha manual",
+      "Base pronta para expandir com IA lendo o histórico de sessões",
+    ],
+    color: "from-accent to-primary",
+    demoUrl: "https://conexao-sutil.vercel.app",
+  },
+  {
+    icon: MapPin,
+    title: "Lazer Livre — Marketplace de Espaços para Eventos",
+    context:
+      "Marketplace para conectar donos de espaços a quem procura um lugar para eventos, começando pela região de Taquaritinga, com o núcleo do produto construído e validado em produção.",
+    problem: [
+      "Busca por espaços para eventos fragmentada (grupos de WhatsApp, indicação boca a boca)",
+      "Donos de espaço sem vitrine própria online",
+      "Falta de dados de uso para decisão de precificação",
+    ],
+    solution: [
+      "SPA em React/Vite com fluxo completo de busca e reserva",
+      "Métricas de uso e soft-delete de anúncios",
+      "Carrossel de espaços e integração com Supabase para dados e autenticação",
+    ],
+    tags: ["React", "Vite", "Supabase"],
+    results: [
+      "No ar em produção",
+      "Núcleo validado com uso real",
+      "Recebeu sócio (engenheiro de software sênior) para evoluir o produto",
+    ],
+    color: "from-secondary to-primary",
+    demoUrl: "https://lazer-livre.vercel.app",
+  },
+  {
+    icon: ShieldCheck,
+    title: "VITRIX OS — Plataforma de Gestão para Empresa de Segurança",
+    context:
+      "Sistema de gestão operacional para minha própria empresa de segurança privada, cobrindo escalas de funcionários, financeiro e controle de acesso por perfil.",
+    problem: [
+      "Escalas e presença de funcionários controladas manualmente",
+      "Pagamento de diárias sem rastreabilidade",
+      "Falta de controle de acesso: qualquer pessoa via dado sensível (ex: PIX)",
+    ],
+    solution: [
+      "Frontend React + backend FastAPI + MongoDB, deploy em Vercel, Render e Atlas",
+      "RBAC completo por perfil (admin, coordenador, RH, financeiro)",
+      "Controle de pagamento de diárias (pago/pendente) direto no dashboard",
+      "Cadastro completo de funcionários com busca de CEP e certificações",
+    ],
+    tags: ["React", "FastAPI", "MongoDB", "RBAC"],
+    results: [
+      "No ar em produção, uso real na própria operação",
+      "Controle de diárias e financeiro sem planilha",
+      "Hardening de segurança aplicado (registro de admin travado, CORS restrito)",
+    ],
+    color: "from-primary to-secondary",
+    demoUrl: "https://vitrixsecuritystaff.vercel.app",
   },
   {
     icon: Workflow,
