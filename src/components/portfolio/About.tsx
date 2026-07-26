@@ -31,8 +31,8 @@ const About = () => {
           <p className="text-foreground/80 leading-relaxed text-lg mb-4">
             Em paralelo, fundei a <span className="text-primary font-medium">Agient Brasil</span>, onde uso
             essa mesma base técnica para construir produtos completos, do frontend ao banco de dados, com
-            agentes de IA como parceiros de desenvolvimento. Hoje tenho 4 produtos meus em produção e um
-            cliente pagante real usando no dia a dia o que construí.
+            agentes de IA como parceiros de desenvolvimento. Hoje tenho 4 produtos meus em produção, incluindo
+            uma clínica real que roda o negócio todo dia em cima do que construí.
           </p>
           <p className="text-foreground/80 leading-relaxed text-lg">
             Meu perfil é orientado a resultado. Seja destravando um pipeline crítico em produção ou tirando um
