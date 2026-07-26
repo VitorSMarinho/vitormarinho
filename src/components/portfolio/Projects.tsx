@@ -1,5 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Database, Workflow, Mail, Settings, FileSpreadsheet, Brain, ExternalLink, Rocket, Stethoscope, MapPin, ShieldCheck } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 interface ProjectData {
   icon: typeof Workflow;
@@ -267,6 +276,9 @@ const projects: ProjectData[] = [
 ];
 
 const Projects = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const activeProject = openIndex !== null ? projects[openIndex] : null;
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="max-w-5xl mx-auto">
@@ -277,107 +289,142 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-sm font-medium tracking-widest text-primary uppercase mb-3">Portfólio</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-12">Projetos em Destaque</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-2">Projetos em Destaque</h3>
+          <p className="text-muted-foreground mb-12">Clique em um projeto para ver o case completo.</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project, i) => (
-            <motion.div
-              key={i}
-              className="glass rounded-2xl p-8 group hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-            >
-              {/* Hover glow */}
-              <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500 rounded-full`} />
+        <Carousel opts={{ align: "start", loop: true }} className="w-full">
+          <CarouselContent>
+            {projects.map((project, i) => (
+              <CarouselItem key={i} className="sm:basis-1/2 lg:basis-1/3">
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(i)}
+                  className="glass rounded-2xl p-6 text-left w-full h-full flex flex-col group hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden"
+                >
+                  {/* Hover glow */}
+                  <div className={`absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-500 rounded-full`} />
 
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-20`}>
-                    <project.icon className="w-5 h-5 text-primary-foreground" />
-                  </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                </div>
+                  <div className="relative z-10 flex flex-col h-full">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-20`}>
+                        <project.icon className="w-5 h-5 text-primary-foreground" />
+                      </div>
+                      <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
 
-                <h4 className="text-xl font-semibold mb-3">{project.title}</h4>
+                    <h4 className="text-lg font-semibold mb-2 line-clamp-2">{project.title}</h4>
 
-                {/* Contexto */}
-                <p className="text-foreground/65 text-sm leading-relaxed mb-4">{project.context}</p>
+                    <p className="text-foreground/60 text-sm leading-relaxed mb-4 line-clamp-3 flex-1">
+                      {project.context}
+                    </p>
 
-                {/* Problema */}
-                {project.problem && (
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Problema</p>
-                    <ul className="space-y-1">
-                      {project.problem.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-foreground/60 text-sm">
-                          <span className="w-1 h-1 rounded-full bg-destructive/60 mt-2 shrink-0" />
-                          <span>{item}</span>
-                        </li>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-0.5 text-xs rounded-full bg-muted text-muted-foreground"
+                        >
+                          {tag}
+                        </span>
                       ))}
-                    </ul>
+                      {project.tags.length > 3 && (
+                        <span className="px-2 py-0.5 text-xs rounded-full bg-muted text-muted-foreground">
+                          +{project.tags.length - 3}
+                        </span>
+                      )}
+                    </div>
+
+                    <span className="text-sm font-medium text-primary mt-auto">Ver case completo →</span>
                   </div>
-                )}
+                </button>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
 
-                {/* Solução */}
-                <div className="mb-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Solução</p>
-                  <ul className="space-y-1">
-                    {project.solution.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-foreground/65 text-sm">
-                        <span className="w-1 h-1 rounded-full bg-primary/60 mt-2 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Resultados */}
-                <div className="mb-5">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Resultado</p>
-                  <ul className="space-y-1">
-                    {project.results.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-foreground/65 text-sm">
-                        <span className="w-1 h-1 rounded-full bg-secondary/80 mt-2 shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-xs rounded-full bg-muted text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Demo link */}
-                {project.demoUrl && (
-                  <div className="mt-5">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-primary hover:text-primary-foreground hover:bg-primary/90 transition-colors"
-                    >
-                      {project.demoLabel || "Acessar demo"}
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="flex justify-center gap-3 mt-8">
+            <CarouselPrevious className="static translate-y-0" />
+            <CarouselNext className="static translate-y-0" />
+          </div>
+        </Carousel>
       </div>
+
+      <Dialog open={openIndex !== null} onOpenChange={(open) => !open && setOpenIndex(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+          {activeProject && (
+            <>
+              <DialogHeader>
+                <div
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${activeProject.color} bg-opacity-20 flex items-center justify-center mb-2`}
+                >
+                  <activeProject.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <DialogTitle className="text-xl">{activeProject.title}</DialogTitle>
+              </DialogHeader>
+
+              <p className="text-foreground/65 text-sm leading-relaxed">{activeProject.context}</p>
+
+              {activeProject.problem && (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Problema</p>
+                  <ul className="space-y-1">
+                    {activeProject.problem.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-foreground/60 text-sm">
+                        <span className="w-1 h-1 rounded-full bg-destructive/60 mt-2 shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Solução</p>
+                <ul className="space-y-1">
+                  {activeProject.solution.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-foreground/65 text-sm">
+                      <span className="w-1 h-1 rounded-full bg-primary/60 mt-2 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary/80 mb-2">Resultado</p>
+                <ul className="space-y-1">
+                  {activeProject.results.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-foreground/65 text-sm">
+                      <span className="w-1 h-1 rounded-full bg-secondary/80 mt-2 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {activeProject.tags.map((tag) => (
+                  <span key={tag} className="px-2.5 py-1 text-xs rounded-full bg-muted text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {activeProject.demoUrl && (
+                <a
+                  href={activeProject.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-primary hover:text-primary-foreground hover:bg-primary/90 transition-colors w-fit"
+                >
+                  {activeProject.demoLabel || "Acessar demo"}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              )}
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

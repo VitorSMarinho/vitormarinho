@@ -25,6 +25,14 @@ const categories = [
     name: "DevOps & Monitoramento",
     techs: ["Git", "Azure DevOps", "CI/CD", "GitHub Actions", "Azure Monitor", "Log Analytics"],
   },
+  {
+    name: "IA & Agentes",
+    techs: ["LangChain", "CrewAI", "Groq", "Claude API", "Prompt Engineering", "n8n"],
+  },
+  {
+    name: "Produtos & Full-Stack",
+    techs: ["Next.js", "React", "FastAPI", "Supabase", "PostgreSQL", "MongoDB"],
+  },
 ];
 
 const TechStack = () => {
