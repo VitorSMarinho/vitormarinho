@@ -11,6 +11,7 @@ interface ProjectData {
   results: string[];
   color: string;
   demoUrl?: string;
+  demoLabel?: string;
 }
 
 const projects: ProjectData[] = [
@@ -83,6 +84,7 @@ const projects: ProjectData[] = [
     ],
     color: "from-primary to-accent",
     demoUrl: "https://agient.com.br",
+    demoLabel: "Acessar site oficial da empresa",
   },
   {
     icon: Stethoscope,
@@ -362,7 +364,7 @@ const Projects = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-medium text-primary hover:text-primary-foreground hover:bg-primary/90 transition-colors"
                     >
-                      Acessar demo
+                      {project.demoLabel || "Acessar demo"}
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>

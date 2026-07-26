@@ -1,11 +1,26 @@
 import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+import { Briefcase, Rocket } from "lucide-react";
 
 const experiences = [
+  {
+    role: "Fundador & Desenvolvedor",
+    company: "Agient Brasil",
+    period: "2026 — Presente",
+    current: true,
+    icon: Rocket,
+    items: [
+      "Fundei a Agient Brasil para levar sites, automações e agentes de IA sob medida a negócios locais, unindo experiência em engenharia de dados à construção de produtos ponta a ponta com IA como parceira de desenvolvimento.",
+      "Fechei o primeiro cliente pagante da empresa (Conexão Sutil): site institucional e painel administrativo com financeiro mês a mês, agenda e gestão de terapeutas, em uso real pelo cliente.",
+      "Coloquei em produção mais 3 produtos: Lazer Livre (marketplace de espaços para eventos, que atraiu um sócio engenheiro de software sênior), VITRIX OS (plataforma de gestão da minha própria empresa de segurança privada) e a landing/operação da própria Agient, com domínio próprio e SEO técnico.",
+      "Responsável pelo ciclo completo de cada projeto: diagnóstico do problema do cliente, arquitetura da solução, desenvolvimento (frontend, backend, banco de dados) e deploy em produção (Vercel, Render, Supabase, MongoDB Atlas).",
+      "Atuo também na estratégia de negócio: posicionamento de marca, precificação e prospecção de clientes.",
+    ],
+  },
   {
     role: "Engenheiro de Dados",
     company: "UPBI Data Analytics",
     period: "Ago/2023 — Mar/2025 · PJ",
+    icon: Briefcase,
     items: [
       "Construção e orquestração de pipelines ETL/ELT escaláveis com PySpark, SQL e Azure Data Factory, realizando ingestão de dados de múltiplas fontes (SAP, SharePoint, Excel) nas camadas Bronze, Silver e Gold (Medallion Architecture) no Databricks.",
       "Atuação em projeto de Big Data com processamento distribuído, garantindo qualidade, rastreabilidade e performance dos dados em escala para suporte a decisões de negócio.",
@@ -47,10 +62,17 @@ const Experience = () => {
 
               <div className="flex items-start gap-4 mb-6">
                 <div className="glass p-3 rounded-xl">
-                  <Briefcase className="w-5 h-5 text-primary" />
+                  <exp.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-semibold">{exp.role}</h4>
+                  <div className="flex items-center gap-2">
+                    <h4 className="text-xl font-semibold">{exp.role}</h4>
+                    {exp.current && (
+                      <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-primary/15 text-primary">
+                        Atual
+                      </span>
+                    )}
+                  </div>
                   <p className="text-muted-foreground">{exp.company}</p>
                   <p className="text-sm text-primary/80">{exp.period}</p>
                 </div>
