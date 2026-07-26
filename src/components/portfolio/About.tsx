@@ -22,7 +22,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="text-foreground/80 leading-relaxed text-lg mb-4">
-            Engenheiro de Dados com experiência real em pipelines ETL/ELT escaláveis, arquitetura Lakehouse
+            Engenheiro de Dados & IA com experiência real em pipelines ETL/ELT escaláveis, arquitetura Lakehouse
             (Medallion) e processamento distribuído com PySpark e Databricks. Domínio de SQL avançado, Python,
             Azure Data Factory e AWS (S3, Redshift, Glue), com atuação em migração de workloads para cloud,
             automação de CI/CD (Azure DevOps, GitHub Actions) e monitoramento proativo com Azure Monitor e Log

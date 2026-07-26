@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="vm-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#765EED" />
+      <stop offset="100%" stop-color="#3CA7DC" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="#0D0F16" />
+  <text
+    x="50%"
+    y="53%"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Segoe UI', Arial, sans-serif"
+    font-weight="700"
+    font-size="230"
+    fill="url(#vm-gradient)"
+  >VM</text>
+</svg>

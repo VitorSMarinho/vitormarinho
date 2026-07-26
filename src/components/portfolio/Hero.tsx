@@ -33,7 +33,7 @@ const Hero = () => {
         >
           <div className="glass inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8">
             <MapPin className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-muted-foreground">Taquaritinga, São Paulo</span>
+            <span className="text-sm text-muted-foreground">Salto, São Paulo</span>
           </div>
         </motion.div>
 
@@ -52,7 +52,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Engenheiro de Dados
+          Engenheiro de Dados & IA
         </motion.p>
 
         <motion.div
