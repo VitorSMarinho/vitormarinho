@@ -59,6 +59,7 @@ const projects: ProjectData[] = [
     ],
     color: "from-accent to-secondary",
     demoUrl: "https://clinical-wisdom-web.lovable.app",
+    demoLabel: "Explorar a plataforma ARIA",
   },
   {
     icon: Rocket,
@@ -110,6 +111,7 @@ const projects: ProjectData[] = [
     ],
     color: "from-accent to-primary",
     demoUrl: "https://conexao-sutil.vercel.app",
+    demoLabel: "Visitar o site da Conexão Sutil",
   },
   {
     icon: MapPin,
@@ -134,6 +136,7 @@ const projects: ProjectData[] = [
     ],
     color: "from-secondary to-primary",
     demoUrl: "https://lazer-livre.vercel.app",
+    demoLabel: "Explorar o Lazer Livre no ar",
   },
   {
     icon: ShieldCheck,
@@ -159,6 +162,7 @@ const projects: ProjectData[] = [
     ],
     color: "from-primary to-secondary",
     demoUrl: "https://vitrixsecuritystaff.vercel.app",
+    demoLabel: "Ver o VITRIX OS em produção",
   },
   {
     icon: Workflow,

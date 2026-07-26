@@ -5,15 +5,15 @@ const experiences = [
   {
     role: "Fundador & Desenvolvedor",
     company: "Agient Brasil",
-    period: "2026 — Presente",
+    period: "Abril/2026 — Presente",
     current: true,
     icon: Rocket,
     items: [
-      "Fundei a Agient Brasil para levar sites, automações e agentes de IA sob medida a negócios locais, unindo experiência em engenharia de dados à construção de produtos ponta a ponta com IA como parceira de desenvolvimento.",
-      "Fechei o primeiro cliente pagante da empresa (Conexão Sutil): site institucional e painel administrativo com financeiro mês a mês, agenda e gestão de terapeutas, em uso real pelo cliente.",
-      "Coloquei em produção mais 3 produtos: Lazer Livre (marketplace de espaços para eventos, que atraiu um sócio engenheiro de software sênior), VITRIX OS (plataforma de gestão da minha própria empresa de segurança privada) e a landing/operação da própria Agient, com domínio próprio e SEO técnico.",
-      "Responsável pelo ciclo completo de cada projeto: diagnóstico do problema do cliente, arquitetura da solução, desenvolvimento (frontend, backend, banco de dados) e deploy em produção (Vercel, Render, Supabase, MongoDB Atlas).",
-      "Atuo também na estratégia de negócio: posicionamento de marca, precificação e prospecção de clientes.",
+      "Fundei a Agient Brasil em abril de 2026 pra resolver algo que vejo todo dia: negócio local afogado em tarefa repetitiva, sem tempo pra crescer. Construo sites, automações e agentes de IA sob medida, com IA como parceira de desenvolvimento do primeiro rascunho até o produto rodando em produção.",
+      "Levei a Conexão Sutil, uma clínica de terapias real, da agenda em papel e planilha solta pra um site institucional e um painel completo: financeiro mês a mês, gestão de terapeutas e histórico por paciente. O cliente roda o negócio por ali todo dia.",
+      "Tenho hoje 4 produtos meus em produção: a própria Agient (domínio próprio, SEO técnico, agente de IA pra qualificar lead), o Lazer Livre (marketplace de espaços que já atraiu um sócio engenheiro de software sênior) e o VITRIX OS (sistema que uso pra gerir minha própria empresa de segurança, com controle de acesso por perfil e financeiro).",
+      "Domino o ciclo inteiro sozinho: entendo o problema do cliente, desenho a arquitetura, escrevo o código (frontend, backend, banco de dados) e coloco no ar (Vercel, Render, Supabase, MongoDB Atlas), sem depender de equipe pra sair do papel.",
+      "Cuido também do lado de negócio: posicionamento de marca, precificação e prospecção de cliente novo.",
     ],
   },
   {
