@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, ChevronDown, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -77,6 +77,16 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
+          <Button
+            variant="outline"
+            className="glass border-0 rounded-full hover:bg-primary/20 transition-colors gap-2 px-5"
+            asChild
+          >
+            <a href="/CV_Vitor_Marinho_Engenheiro_de_Dados.pdf" download>
+              <Download className="w-4 h-4" />
+              Baixar CV
+            </a>
+          </Button>
           <Button
             variant="outline"
             size="icon"
