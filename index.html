@@ -1,27 +1,596 @@
 <!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vitor Marinho | Engenheiro de Dados & IA</title>
-    <meta name="description" content="Portfólio de Vitor Marinho — Engenheiro de Dados & IA especializado em Azure, Microsoft Fabric, Databricks e PySpark.">
-    <meta name="author" content="Vitor Marinho" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+<html lang="pt-BR" data-palette="petroleo">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vitor Marinho · Engenheiro de Dados &amp; IA</title>
+<meta name="description" content="Engenheiro de Dados desde 2023, com experiência em Azure Synapse, Azure Data Lake, Data Factory, Databricks, PySpark e Microsoft Fabric. Pipelines que entregam dado confiável para o negócio e para a IA.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="canonical" href="https://vitormarinho.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vitormarinho.vercel.app/">
+<meta property="og:title" content="Vitor Marinho · Engenheiro de Dados &amp; IA">
+<meta property="og:description" content="Engenheiro de Dados desde 2023: Databricks, PySpark, Delta Lake, Azure Synapse e Data Factory. Clientes CBMM e A.C.Camargo Cancer Center.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* Layout: hero tipográfico grande com fatos de triagem; faixa invertida "refinaria" guiada pela rolagem (o mesmo registro passa por bronze, silver e gold); depois conteúdo em coluna com cards de engenharia */
+:root {
+  --a-light: #17605a; --as-light: #dfeeeb; --a-dark: #7fcfc4; --as-dark: #17302d;
+  --bg: #f5f6f4; --surface: #ffffff; --fg: #121b1a; --muted: #56625f; --line: #d9e0dd;
+  --accent: var(--a-light); --accent-soft: var(--as-light);
+  --bronze: #a2581f; --silver: #4f6470; --gold: #9a7408;
+  --ok: #23804a;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1413; --surface: #141c1b; --fg: #e7edeb; --muted: #95a4a0; --line: #25302e;
+    --accent: var(--a-dark); --accent-soft: var(--as-dark);
+    --bronze: #e09a62; --silver: #a9bcc6; --gold: #e6c25a; --ok: #66d08f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1413; --surface: #141c1b; --fg: #e7edeb; --muted: #95a4a0; --line: #25302e;
+  --accent: var(--a-dark); --accent-soft: var(--as-dark);
+  --bronze: #e09a62; --silver: #a9bcc6; --gold: #e6c25a; --ok: #66d08f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 4.5rem; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 72rem; margin: 0 auto; padding-inline: clamp(1rem, 4vw, 2.5rem); }
+.narrow { max-width: 50rem; }
+p { margin: 0; }
+h1, h2, h3, h4 { margin: 0; }
 
 
+/* nav */
+nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in srgb, var(--bg) 74%, transparent); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); }
+nav.top .wrap { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding-block: 0.75rem; }
+.mark { font: 500 0.85rem var(--font-mono); text-decoration: none; white-space: nowrap; }
+nav.top ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.4rem; font-size: 0.9rem; }
+nav.top ul a { text-decoration: none; color: var(--muted); transition: color 150ms ease; }
+nav.top ul a:hover, nav.top ul a.on { color: var(--fg); }
+.nav-cv { font: 500 0.82rem var(--font-body); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.85rem; background: var(--surface); white-space: nowrap; transition: transform 100ms ease-out; }
+.nav-cv:active { transform: scale(0.96); }
+.progress { height: 3px; background: transparent; }
+.progress span { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: left; transform: scaleX(0); }
+@media (max-width: 720px) { nav.top ul { display: none; } }
+@media (prefers-reduced-transparency: reduce) { nav.top { background: var(--bg); backdrop-filter: none; -webkit-backdrop-filter: none; } }
 
-    <meta property="og:type" content="website" />
+/* hero */
+.hero { padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2.5rem, 6vw, 4rem); display: grid; gap: 1.6rem; }
+.status { display: inline-flex; align-items: center; gap: 0.55rem; width: fit-content; font: 500 0.78rem var(--font-mono); border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.8rem; background: var(--surface); }
+.status i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent); display: block; }
+h1 { font: 400 clamp(3.4rem, 10.5vw, 8rem)/0.92 var(--font-display); letter-spacing: -0.035em; text-wrap: balance; }
+h1 em { font-style: italic; color: var(--accent); }
+.role { font: 500 clamp(1.15rem, 2.4vw, 1.5rem)/1.3 var(--font-body); letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 40rem; font-size: 1.08rem; }
+.facts { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.45rem; font: 400 0.8rem var(--font-mono); }
+.facts li { border: 1px solid var(--line); border-radius: 0.4rem; padding: 0.25rem 0.55rem; background: var(--surface); }
+.facts li b { font-weight: 500; color: var(--accent); }
+.ctas { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font: 500 0.92rem var(--font-body); padding: 0.65rem 1.05rem; border-radius: 0.55rem; border: 1px solid var(--line); background: var(--surface); cursor: pointer; transition: transform 100ms ease-out, border-color 150ms ease; }
+.btn:hover { border-color: var(--muted); }
+.btn:active { transform: scale(0.97); }
+.btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:title" content="Vitor Marinho | Engenheiro de Dados & IA">
-  <meta name="twitter:title" content="Vitor Marinho | Engenheiro de Dados & IA">
-  <meta property="og:description" content="Portfólio de Vitor Marinho — Engenheiro de Dados & IA especializado em Azure, Microsoft Fabric, Databricks e PySpark.">
-  <meta name="twitter:description" content="Portfólio de Vitor Marinho — Engenheiro de Dados & IA especializado em Azure, Microsoft Fabric, Databricks e PySpark.">
+/* refinaria (faixa invertida) */
+.refinery { background: var(--fg); color: var(--bg); position: relative; }
+.refinery .muted { color: color-mix(in srgb, var(--bg) 62%, var(--fg)); }
+html.js .refinery { height: 260vh; }
+.ref-sticky { padding-block: clamp(2.5rem, 8vh, 4.5rem); display: grid; gap: 1.6rem; align-content: start; }
+html.js .ref-sticky { position: sticky; top: 3.6rem; min-height: calc(100vh - 3.6rem); }
+.ref-head { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: end; justify-content: space-between; }
+.eyebrow { font: 500 0.74rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.ref-head h2 { font: 400 clamp(2rem, 5vw, 3.4rem)/1.02 var(--font-display); letter-spacing: -0.02em; max-width: 30rem; text-wrap: balance; }
+.stages { display: flex; gap: 0.4rem; list-style: none; margin: 0; padding: 0; font: 500 0.72rem var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; }
+.stages li { padding: 0.3rem 0.7rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--bg) 25%, transparent); color: color-mix(in srgb, var(--bg) 55%, var(--fg)); transition: background 250ms ease, color 250ms ease, border-color 250ms ease; }
+.stages li.on { color: var(--fg); background: var(--c); border-color: var(--c); }
+.ref-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.2rem; align-items: stretch; }
+@media (max-width: 860px) { .ref-grid { grid-template-columns: minmax(0, 1fr); } }
+.panel { border: 1px solid color-mix(in srgb, var(--bg) 18%, transparent); border-radius: 0.9rem; padding: 1rem 1.1rem; min-width: 0; display: grid; gap: 0.8rem; align-content: start; }
+.panel-label { font: 500 0.72rem var(--font-mono); letter-spacing: 0.06em; display: flex; justify-content: space-between; gap: 1rem; }
+.record { font: 400 clamp(0.74rem, 1.6vw, 0.86rem)/1.75 var(--font-mono); margin: 0; overflow-x: auto; }
+.record .k { color: color-mix(in srgb, var(--bg) 60%, var(--fg)); }
+.field { display: block; white-space: pre; }
+.field .raw, .field .clean { transition: opacity 220ms ease, color 220ms ease; }
+.field .raw { color: var(--bronze); }
+.field .clean { color: var(--bg); display: none; }
+.field.done .raw { display: none; }
+.field.done .clean { display: inline; }
+.field.done .clean::after { content: "  ✓"; color: var(--ok); }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; font: 400 0.78rem var(--font-mono); }
+.checks li { display: flex; gap: 0.5rem; align-items: baseline; color: color-mix(in srgb, var(--bg) 45%, var(--fg)); transition: color 200ms ease; }
+.checks li::before { content: "○"; }
+.checks li.on { color: var(--bg); }
+.checks li.on::before { content: "●"; color: var(--ok); }
+.goldcard { background: var(--bg); color: var(--fg); border-radius: 0.9rem; padding: 1.3rem; display: grid; gap: 0.7rem; align-content: start; border-top: 4px solid var(--gold); will-change: transform, opacity; }
+.goldcard .eyebrow { color: var(--gold); }
+.goldcard h3 { font: 400 clamp(1.6rem, 3.4vw, 2.2rem)/1.05 var(--font-display); letter-spacing: -0.015em; }
+.goldcard p { color: var(--muted); font-size: 0.95rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
+.chips li { font: 500 0.74rem var(--font-mono); padding: 0.18rem 0.5rem; border-radius: 0.3rem; background: var(--accent-soft); color: var(--accent); }
+.goldcard a { font: 500 0.85rem var(--font-body); color: var(--accent); text-underline-offset: 3px; }
+.scroll-hint { font: 400 0.76rem var(--font-mono); }
+
+/* seções de conteúdo */
+.section { padding-block: clamp(3.5rem, 8vw, 6rem) 0; display: grid; gap: 2rem; }
+.sec-head { display: grid; gap: 0.5rem; }
+.sec-head .eyebrow { color: var(--accent); display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.tbl { color: var(--muted); letter-spacing: 0; text-transform: none; font-weight: 400; }
+h2.big { font: 400 clamp(2.4rem, 6vw, 4rem)/1 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
+
+/* experiência */
+.jobs { list-style: none; margin: 0; padding: 0; display: grid; gap: 2.5rem; }
+.jobs > li { display: grid; grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.jobs > li.anchor { border-top: 2px solid var(--accent); }
+.when { font: 400 0.82rem/1.6 var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.job { display: grid; gap: 0.5rem; min-width: 0; }
+.job h3 { font: 400 clamp(1.6rem, 3vw, 2rem)/1.1 var(--font-display); letter-spacing: -0.015em; }
+.org { color: var(--muted); }
+.org b { color: var(--fg); font-weight: 600; }
+.job .client { margin: 0.9rem 0 0; font: 600 1rem/1.4 var(--font-body, inherit); }
+.job .client span { font-weight: 400; color: var(--muted); font-size: 0.88rem; margin-left: 0.4rem; }
+.job ul { margin: 0.3rem 0 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; max-width: 46rem; }
+@media (max-width: 640px) { .jobs > li { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; } }
+
+/* projetos */
+.cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.cases .lead { grid-column: 1 / -1; padding: clamp(1.3rem, 3vw, 2.2rem); }
+.cases .wide { grid-column: 1 / -1; }
+.cases .lead h3 { font-size: clamp(1.8rem, 3.6vw, 2.8rem); max-width: 40rem; }
+.cases .lead > p { max-width: 46rem; font-size: 1.05rem; }
+@media (max-width: 900px) { .cases { grid-template-columns: minmax(0, 1fr); } }
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 0.9rem; padding: 1.3rem; display: grid; gap: 0.9rem; align-content: start; min-width: 0; }
+.case.lead { border-top: 3px solid var(--accent); }
+.case-top { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag { font: 500 0.7rem var(--font-mono); padding: 0.14rem 0.5rem; border-radius: 0.3rem; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+.tag.plain { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+.case h3 { font: 400 clamp(1.45rem, 2.6vw, 2rem)/1.08 var(--font-display); letter-spacing: -0.015em; }
+.case > p { color: var(--muted); }
+.case dl { margin: 0; display: grid; gap: 0.7rem; }
+.case dl div { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 0.8rem; font-size: 0.92rem; }
+.case dt { font: 500 0.7rem/1.9 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.case dd { margin: 0; min-width: 0; }
+.case:not(.lead) dl div { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; }
+@media (max-width: 560px) { .case dl div { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; } }
+.flow { font: 400 0.78rem/1.6 var(--font-mono); color: var(--muted); }
+.flow b { color: var(--fg); font-weight: 500; }
+.links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9rem; }
+.links a { color: var(--accent); text-underline-offset: 3px; }
+.aside-line { color: var(--muted); font-size: 0.95rem; }
+
+/* stack como schema */
+.schema-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 0.8rem; background: var(--surface); }
+table.schema { border-collapse: collapse; width: 100%; min-width: 34rem; font: 400 0.86rem/1.5 var(--font-mono); }
+.schema caption { text-align: left; padding: 0.8rem 1rem; font: 500 0.75rem var(--font-mono); color: var(--muted); border-bottom: 1px solid var(--line); }
+.schema th { text-align: left; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 0.6rem 1rem; border-bottom: 1px solid var(--line); }
+.schema td { padding: 0.65rem 1rem; vertical-align: top; border-bottom: 1px solid var(--line); }
+.schema tr:last-child td { border-bottom: 0; }
+.schema tbody tr:nth-child(even) td { background: color-mix(in srgb, var(--accent-soft) 40%, transparent); }
+.schema td:first-child { color: var(--accent); white-space: nowrap; }
+.schema td:nth-child(2) { color: var(--muted); white-space: nowrap; }
+.schema td:last-child { font-family: var(--font-body); font-size: 0.92rem; }
+
+/* formação */
+.edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
+.edu-item { border: 1px solid var(--line); border-radius: 0.8rem; padding: 1.1rem; display: grid; gap: 0.25rem; background: var(--surface); }
+.edu-item h3 { font: 600 1rem/1.35 var(--font-body); }
+.edu-item span { color: var(--muted); font-size: 0.9rem; }
+
+/* contato */
+.contact { padding-block: clamp(3.5rem, 8vw, 6rem); display: grid; gap: 1.5rem; }
+.sql { border: 1px solid var(--line); border-radius: 0.8rem; background: var(--surface); overflow: hidden; }
+.sql-q { margin: 0; padding: 0.9rem 1rem; font: 400 0.88rem/1.6 var(--font-mono); white-space: pre-wrap; border-bottom: 1px solid var(--line); min-height: 3.2rem; }
+.sql-q b { color: var(--accent); font-weight: 500; }
+.caret { display: inline-block; width: 0.55ch; background: var(--fg); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.sql-res { padding: 0.4rem 0 0.6rem; transition: opacity 250ms ease; }
+.sql-res .meta { padding: 0.3rem 1rem 0.5rem; font: 400 0.74rem var(--font-mono); color: var(--muted); }
+.sql-res .tw { overflow-x: auto; }
+.sql-res table { border-collapse: collapse; width: 100%; min-width: 30rem; font: 400 0.88rem var(--font-mono); }
+.sql-res th { text-align: left; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; padding: 0.3rem 1rem; }
+.sql-res td { padding: 0.45rem 1rem; }
+.sql-res a { color: var(--accent); text-underline-offset: 3px; }
+html.js .sql.pending .sql-res { opacity: 0; }
+.copy { font: 500 0.72rem var(--font-mono); border: 1px solid var(--line); background: var(--bg); border-radius: 0.3rem; padding: 0.1rem 0.45rem; margin-left: 0.5rem; cursor: pointer; transition: transform 100ms ease-out; }
+.copy:active { transform: scale(0.95); }
+footer { padding-block: 2rem 3rem; border-top: 1px solid var(--line); color: var(--muted); font: 400 0.8rem var(--font-mono); display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  html.js .refinery { height: auto; }
+  html.js .ref-sticky { position: static; min-height: 0; }
+}
+</style>
 </head>
+<body>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<nav class="top" aria-label="Seções">
+  <div class="wrap">
+    <a class="mark" href="#topo">vitor marinho</a>
+    <ul>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="nav-cv" href="/CV_Vitor_Marinho_Engenheiro_de_Dados.pdf" download>Baixar CV</a>
+  </div>
+  <div class="progress"><span id="progress"></span></div>
+</nav>
+
+<main id="topo">
+
+  <header class="wrap hero">
+    <span class="status"><i></i>Disponível agora · CLT ou PJ · remoto ou híbrido</span>
+    <h1>Vitor<br><em>Marinho</em></h1>
+    <p class="role">Engenheiro de Dados &amp; IA</p>
+    <p class="lede">Construo pipelines e Lakehouses em Azure e Databricks que entregam dado confiável para o negócio, e pronto para alimentar RAG e agentes de IA.</p>
+    <ul class="facts" aria-label="Resumo">
+      <li><b>Desde 2023</b> em dados</li>
+      <li>ex-<b>UPBI</b> Data &amp; AI</li>
+      <li>Databricks · PySpark · Delta Lake</li>
+      <li>Azure Synapse · Data Factory</li>
+      <li>Taquaritinga, SP</li>
+      <li>Inglês técnico (leitura)</li>
+    </ul>
+    <div class="ctas">
+      <a class="btn primary" href="/CV_Vitor_Marinho_Engenheiro_de_Dados.pdf" download>Baixar currículo (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/vitor-marinho/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/VitorSMarinho" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:vitomarinho6@gmail.com">E-mail</a>
+    </div>
+  </header>
+
+  <!-- MOMENTO ASSINATURA -->
+  <section class="refinery" id="refinaria" aria-labelledby="ref-title">
+    <div class="wrap ref-sticky">
+      <div class="ref-head">
+        <div style="display:grid;gap:0.6rem">
+          <span class="eyebrow muted">como eu trabalho</span>
+          <h2 id="ref-title">Do dado bruto ao dado confiável.</h2>
+        </div>
+        <ol class="stages" aria-label="Camadas">
+          <li data-s="0" style="--c: var(--bronze)">bronze</li>
+          <li data-s="1" style="--c: var(--silver)">silver</li>
+          <li data-s="2" class="on" style="--c: var(--gold)">gold</li>
+        </ol>
+      </div>
+      <div class="ref-grid">
+        <div class="panel">
+          <div class="panel-label muted"><span>experiencia.registro_upbi</span><span id="ref-layer">camada: gold</span></div>
+<pre class="record" aria-label="Registro de experiência sendo tratado"><span class="field done" data-t="0.20"><span class="k">"cargo":   </span><span class="raw">"  eng. dados "</span><span class="clean">"Engenheiro de Dados"</span></span><span class="field done" data-t="0.26"><span class="k">"empresa": </span><span class="raw">"upbi"</span><span class="clean">"UPBI Data &amp; AI"</span></span><span class="field done" data-t="0.32"><span class="k">"inicio":  </span><span class="raw">"08/2023"</span><span class="clean">"2023-08"</span></span><span class="field done" data-t="0.38"><span class="k">"fim":     </span><span class="raw">"03/2026"</span><span class="clean">"2026-03"</span></span><span class="field done" data-t="0.44"><span class="k">"setores": </span><span class="raw">"mineracao|metalurgia|saude"</span><span class="clean">["mineração", "metalurgia", "saúde"]</span></span><span class="field done" data-t="0.50"><span class="k">"stack":   </span><span class="raw">"synapse;DATABRICKS;pyspark;adf;;"</span><span class="clean">["Azure Synapse", "Databricks", "PySpark", "Azure Data Factory"]</span></span></pre>
+          <ul class="checks" aria-label="Validações">
+            <li class="on" data-t="0.24">texto aparado e padronizado</li>
+            <li class="on" data-t="0.36">datas em ISO 8601</li>
+            <li class="on" data-t="0.46">acentuação e listas normalizadas</li>
+            <li class="on" data-t="0.54">vazios removidos da stack</li>
+            <li class="on" data-t="0.60">schema validado · 6 de 6 campos</li>
+          </ul>
+        </div>
+        <article class="goldcard" id="goldcard">
+          <span class="eyebrow">gold · pronto para consumo</span>
+          <h3>Engenheiro de Dados</h3>
+          <p>UPBI Data &amp; AI · ago 2023 a mar 2026 · clientes CBMM e A.C.Camargo Cancer Center</p>
+          <ul class="chips"><li>Azure Synapse</li><li>Databricks</li><li>PySpark</li><li>Azure Data Factory</li></ul>
+          <a href="#experiencia">Ver a experiência completa ↓</a>
+        </article>
+      </div>
+      <p class="scroll-hint muted" id="scroll-hint">role a página para rodar o pipeline</p>
+    </div>
+  </section>
+
+
+  <section class="wrap section" id="experiencia" aria-labelledby="exp-title">
+    <div class="sec-head">
+      <span class="eyebrow">Experiência <span class="tbl">silver.experiencia · 2 registros</span></span>
+      <h2 class="big" id="exp-title">Onde aprendi o ofício.</h2>
+    </div>
+    <ol class="jobs">
+      <li>
+        <span class="when">abr 2026 · atual</span>
+        <div class="job">
+          <h3>Engenheiro de Dados e IA</h3>
+          <span class="org"><b>Autônomo</b> · PJ · projetos para pequenos negócios, em paralelo à busca por posição CLT ou PJ</span>
+          <ul>
+            <li>Modelei e integrei dados em PostgreSQL/Supabase para sistemas multi-tenant de agendamento e cardápio digital em produção, com backend Python.</li>
+            <li>Construí a camada de memória em Postgres para agentes conversacionais, que consultam bases reais (histórico, regras de negócio, agenda) antes de responder.</li>
+            <li>Integrei sistemas via API e automações em n8n, com revisão por pull request.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="anchor">
+        <span class="when">dez 2023 · mar 2026</span>
+        <div class="job">
+          <h3>Engenheiro de Dados Júnior</h3>
+          <span class="org"><b>UPBI Data &amp; AI</b> · PJ · efetivado após o programa de estágio em dados (ago a nov 2023)</span>
+          <h4 class="client">CBMM <span>mineração e metalurgia · nov 2025 a mar 2026</span></h4>
+          <ul>
+            <li>Tratei dados do SAP (Material Ledger e MM) em Databricks com Unity Catalog, PySpark e Delta Lake, da camada raw até as views dos relatórios Power BI de custo de produção e suprimentos, e mantive os jobs de orquestração.</li>
+            <li>Implementei o padrão de higiene de dados do cliente em funções PySpark reutilizáveis (padronização, metadados, chave hash MD5, soft delete) e modelei dimensões na camada de serviço.</li>
+            <li>Conduzi minhas entregas em sprints no Azure Boards, com tasks, atividades e horas por atividade, e levantamento semanal de horas para o relatório à gestão de dados do cliente.</li>
+          </ul>
+          <h4 class="client">A.C.Camargo Cancer Center <span>saúde, oncologia · dez 2023 a out 2025</span></h4>
+          <ul>
+            <li>Construí e sustentei pipelines ETL/ELT no Azure Synapse Analytics, com notebooks PySpark e SQL pools, consumindo origens Oracle e o Data Warehouse do cliente, com dados no Azure Data Lake Storage Gen2, ingestão via Azure Data Factory e Logic Apps, monitoramento em Azure Monitor e Log Analytics e anonimização de dados sensíveis sob LGPD.</li>
+            <li>Conduzi a migração do ambiente de dados (Synapse, pipelines, Storage, Key Vault e CI/CD) para um novo tenant Azure, de Dev a Prod, com validação de paridade de linhas, tamanhos e tipos de arquivo.</li>
+            <li>Atuei na POC do Microsoft Fabric com a Microsoft e o time de Arquitetura, escrevi a governança do ambiente e habilitei engenheiros pleno e sênior a criar pipelines. Administrei o Azure DevOps do projeto (aprovação de branches, RBAC, Boards).</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="wrap section" id="projetos" aria-labelledby="proj-title">
+    <div class="sec-head">
+      <span class="eyebrow">Projetos <span class="tbl">gold.projetos · 6 registros</span></span>
+      <h2 class="big" id="proj-title">O que saiu do pipeline.</h2>
+    </div>
+    <div class="cases">
+      <article class="case lead">
+        <div class="case-top"><span class="tag">profissional · UPBI</span><span class="tag plain">CBMM · mineração e metalurgia</span><span class="tag plain">SAP</span></div>
+        <h3>Lakehouse SAP em Databricks: custo de produção e suprimentos</h3>
+        <p>Na CBMM, tratei dados do SAP no Databricks, da camada raw até as views que alimentam os relatórios Power BI de custo de produção, suprimentos e comercial. A publicação final no Power BI ficava com o engenheiro sênior; eu entregava as views e mantinha os jobs.</p>
+        <dl>
+          <div><dt>Fonte</dt><dd>SAP (Material Ledger e MM), sistema de orçamento via catálogo federado em SQL Server e séries de preço de mercado (Platts, CRU). Também mapeei a origem de transações customizadas de PP e SD.</dd></div>
+          <div><dt>Arquitetura</dt><dd class="flow"><b>raw</b> cópia fiel da origem → <b>harmonizada</b> higiene, tipagem e metadados → <b>serviço</b> dimensões e fatos → <b>views</b> para o Power BI · Unity Catalog e Delta Lake em ADLS Gen2</dd></div>
+          <div><dt>Orquestração</dt><dd>Ajustei e mantive o job de insumos do Material Ledger no Databricks Jobs: quatro cargas da harmonizada em paralelo, uma etapa de sincronização que só segue com todas concluídas, a fato de realizado e estoque na camada de serviço e o refresh do Power BI no fim.</dd></div>
+          <div><dt>Qualidade</dt><dd>Implementei o padrão de higiene do cliente em funções PySpark reutilizáveis, aplicadas por tipo de coluna: textos padronizados, códigos distintos para ausente (indeterminado, não se aplica, não existe, não informado), metadados de carga, chave hash MD5 e soft delete.</dd></div>
+          <div><dt>Decisão</dt><dd>Nenhum tratamento na raw. A higiene começa na harmonizada, então qualquer regra pode ser corrigida e reprocessada sem voltar ao SAP.</dd></div>
+          <div><dt>Modelagem</dt><dd>Dimensões de material e cenário na camada de serviço, com chave MD5 e comentário em todas as colunas.</dd></div>
+          <div><dt>Linhagem</dt><dd>Validação em lote, via information_schema, de cada objeto usado pelos relatórios (completo, parcial, não existe, caminho divergente) e rastreio da origem das views de requisições de compra.</dd></div>
+          <div><dt>Gestão</dt><dd>Sprints no Azure DevOps Boards: user stories com DoR e DoD, cada task com as atividades executadas e as horas gastas, e fechamento semanal de horas para o relatório enviado à gestão de dados do cliente.</dd></div>
+          <div><dt>Faria diferente</dt><dd>Tipar os valores numéricos já na harmonizada: encontrei preço de mercado gravado como texto, o que fazia o MIN comparar em ordem alfabética. E tratar nulos antes do hash, porque o concat_ws ignora nulos e pode gerar a mesma chave para linhas diferentes.</dd></div>
+          <div><dt>Stack</dt><dd class="flow">Azure Databricks · Unity Catalog · PySpark · Spark SQL · Delta Lake · ADLS Gen2 · Databricks Jobs · Lakehouse Federation · SAP · Power BI · Azure DevOps (Boards)</dd></div>
+          <div><dt>Status</dt><dd>Projeto profissional de cliente. Sem código público.</dd></div>
+        </dl>
+      </article>
+
+      <article class="case wide">
+        <div class="case-top"><span class="tag">profissional · UPBI</span><span class="tag plain">A.C.Camargo · saúde</span><span class="tag plain">Dev → Prod</span></div>
+        <h3>Migração de tenant Azure: Synapse, Storage, Key Vault e CI/CD</h3>
+        <p>O cliente precisava reduzir custos e decidiu levar o ambiente de dados para um tenant novo. Conduzi a migração de ponta a ponta, de Dev a Prod, conferindo a paridade com o ambiente antigo em cada etapa.</p>
+        <dl>
+          <div><dt>Contexto</dt><dd>Eu já atuava na sustentação do ambiente, buscando formas de economia para o cliente, quando a migração foi decidida.</dd></div>
+          <div><dt>Mapeamento</dt><dd>Inventário completo do tenant antigo: Synapse, pipelines de Dev e Prod, triggers, tabelas, arquivos no Storage, segredos do Key Vault e os acessos de cada usuário, tabela por tabela e por tipo de permissão.</dd></div>
+          <div><dt>Estratégia</dt><dd class="flow"><b>Dev</b> migrado aos poucos e validado → <b>Prod</b> tabela a tabela → pipelines pela esteira <b>CI/CD</b> reconfigurada, mais um pipeline próprio para mover as tabelas</dd></div>
+          <div><dt>Decisão</dt><dd>Em Prod, migração manual tabela por tabela: mais lenta, mas com controle total sobre perda de dados e exposição de dados sensíveis.</dd></div>
+          <div><dt>Validação</dt><dd>Queries de paridade a cada etapa: tipos de arquivo, quantidade de linhas e tamanho batendo com o ambiente antigo.</dd></div>
+          <div><dt>Ajustes</dt><dd>Segredos do Key Vault recriados (não migram entre tenants), triggers reconfiguradas, acessos replicados e esteira CI/CD funcionando igual ao ambiente antigo.</dd></div>
+          <div><dt>Gestão</dt><dd>Documentação dos dois tenants escrita por mim. Atividades e horas registradas diariamente no Azure Boards para o gerente de dados do cliente; administração do Azure DevOps (aprovação de branches, RBAC por função).</dd></div>
+          <div><dt>Stack</dt><dd class="flow">Azure Synapse · Pipelines · Storage · Key Vault · Azure DevOps (Repos, Boards, CI/CD) · SQL</dd></div>
+          <div><dt>Status</dt><dd>Projeto profissional de cliente. Sem código público.</dd></div>
+        </dl>
+      </article>
+
+      <article class="case">
+        <div class="case-top"><span class="tag">profissional · UPBI</span><span class="tag plain">POC com a Microsoft</span></div>
+        <h3>Microsoft Fabric: POC e governança</h3>
+        <dl>
+          <div><dt>Contexto</dt><dd>Depois da migração, o cliente fez uma POC do Microsoft Fabric junto à Microsoft.</dd></div>
+          <div><dt>O que fiz</dt><dd>Configuração inicial com o time de Arquitetura e criação do workspace do projeto.</dd></div>
+          <div><dt>Governança</dt><dd>Documentação de padrões: nomenclatura de todo o ambiente, criação de tabelas e chaves, concessão de acessos por nível, tipo de dado e ambiente.</dd></div>
+          <div><dt>Time</dt><dd>Ensinei engenheiros pleno e sênior a criar pipelines e integrei processos da camada gold para o time de BI consumir no Fabric.</dd></div>
+        </dl>
+      </article>
+
+      <article class="case">
+        <div class="case-top"><span class="tag">profissional · UPBI</span><span class="tag plain">A.C.Camargo · saúde</span></div>
+        <h3>Data Lake em Azure Synapse: oncologia</h3>
+        <dl>
+          <div><dt>Fonte</dt><dd>Dados clínicos sensíveis do A.C.Camargo Cancer Center, referência em oncologia: bancos Oracle e o Data Warehouse do cliente, além de anexos de e-mail ingeridos via Logic Apps.</dd></div>
+          <div><dt>Arquitetura</dt><dd class="flow"><b>Logic Apps</b> e <b>Data Factory</b> ingestão → <b>Data Lake Storage Gen2</b> em camadas → <b>Azure Synapse Analytics</b> notebooks PySpark e SQL pools → Analytics</dd></div>
+          <div><dt>Qualidade</dt><dd>Regras de validação, linhagem e anonimização de dados sensíveis sob LGPD, com monitoramento em Azure Monitor e Log Analytics.</dd></div>
+          <div><dt>Stack</dt><dd class="flow">Azure Synapse Analytics · PySpark · SQL pools · Oracle · Azure Data Lake Storage Gen2 · Azure Data Factory · Logic Apps · Key Vault</dd></div>
+          <div><dt>Status</dt><dd>Projeto de cliente, sem código público.</dd></div>
+        </dl>
+      </article>
+
+      <article class="case">
+        <div class="case-top"><span class="tag">no ar</span><span class="tag plain">dados fictícios</span></div>
+        <h3>ARIA Health</h3>
+        <dl>
+          <div><dt>Fonte</dt><dd>Dados clínicos fictícios em CSV.</dd></div>
+          <div><dt>Arquitetura</dt><dd class="flow">Databricks <b>bronze → silver → gold</b> → Supabase + pgvector → agente com tool calling (FastAPI) → Next.js</dd></div>
+          <div><dt>Decisão</dt><dd>RAG desligado em produção por limite de memória do plano gratuito; roda de ponta a ponta localmente. Trade-off documentado no README.</dd></div>
+          <div><dt>Qualidade</dt><dd>Suíte de evals do agente (5 de 5 casos) e observabilidade de tokens, latência e custo.</dd></div>
+        </dl>
+        <div class="links"><a href="https://agient-aria-health.vercel.app" target="_blank" rel="noopener">Demo</a><a href="https://github.com/VitorSMarinho/agient-aria-health" target="_blank" rel="noopener">Código</a></div>
+      </article>
+
+      <article class="case">
+        <div class="case-top"><span class="tag">em desenvolvimento</span><span class="tag plain">dados públicos</span></div>
+        <h3>payments-data-harness</h3>
+        <dl>
+          <div><dt>Fonte</dt><dd>Estatísticas públicas de pagamentos do Banco Central e dados sintéticos para testar controles de PII/PCI.</dd></div>
+          <div><dt>Arquitetura</dt><dd class="flow">especificação → ingestão → qualidade e PII → modelagem → aprovação humana → exposição</dd></div>
+          <div><dt>Feito</dt><dd>Estrutura do repositório e arquitetura documentada.</dd></div>
+          <div><dt>Planejado</dt><dd>Ingestão, camadas com carga idempotente, testes de qualidade e agentes.</dd></div>
+        </dl>
+        <div class="links"><a href="https://github.com/VitorSMarinho/payments-data-harness" target="_blank" rel="noopener">Código</a></div>
+      </article>
+    </div>
+    <p class="aside-line">Também construí o Agente Analista Financeiro: dado ao vivo do Banco Central com busca híbrida em PostgreSQL/pgvector, orquestrado em LangGraph. Código sob pedido.</p>
+  </section>
+
+  <section class="wrap section" id="stack" aria-labelledby="stack-title">
+    <div class="sec-head">
+      <span class="eyebrow">Stack <span class="tbl">silver.stack · 6 colunas</span></span>
+      <h2 class="big" id="stack-title">Ferramentas do dia a dia.</h2>
+    </div>
+    <div class="schema-wrap">
+      <table class="schema">
+        <caption>DESCRIBE vitor_marinho.stack</caption>
+        <thead><tr><th>coluna</th><th>uso</th><th>valores</th></tr></thead>
+        <tbody>
+          <tr><td>engenharia_dados</td><td>principal</td><td>Azure Synapse Analytics, Azure Data Lake Storage Gen2, Databricks, Unity Catalog, Apache Spark, PySpark, Delta Lake, Medallion, Azure Data Factory, Logic Apps, Microsoft Fabric, Power BI (entrega)</td></tr>
+          <tr><td>linguagens</td><td>principal</td><td>Python, SQL</td></tr>
+          <tr><td>bancos</td><td>principal</td><td>PostgreSQL, pgvector, Supabase, Azure SQL, Oracle</td></tr>
+          <tr><td>cloud_devops</td><td>principal</td><td>Azure, Azure DevOps, Azure Monitor, Log Analytics, GitHub Actions, Git, Docker, AWS</td></tr>
+          <tr><td>governanca</td><td>principal</td><td>qualidade e linhagem de dados, RBAC, LGPD, anonimização de PII</td></tr>
+          <tr><td>ia_aplicada</td><td>diferencial</td><td>RAG, LangChain, LangGraph, avaliação de LLM</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="wrap section" id="formacao" aria-labelledby="edu-title">
+    <div class="sec-head">
+      <span class="eyebrow">Formação <span class="tbl">bronze.formacao</span></span>
+      <h2 class="big" id="edu-title">Base e estudo contínuo.</h2>
+    </div>
+    <div class="edu">
+      <div class="edu-item"><h3>Tecnólogo em Sistemas para Internet</h3><span>FATEC Taquaritinga · concluído em jun 2026</span></div>
+      <div class="edu-item"><h3>Databricks Certified Data Engineer Associate</h3><span>em preparação</span></div>
+      <div class="edu-item"><h3>Big Data e Analytics na Prática</h3><span>em andamento</span></div>
+    </div>
+  </section>
+
+  <section class="wrap contact" id="contato" aria-labelledby="contact-title">
+    <div class="sec-head">
+      <span class="eyebrow">Contato <span class="tbl">gold.contato</span></span>
+      <h2 class="big" id="contact-title">Dado pronto para consumo.</h2>
+    </div>
+    <div class="sql pending" id="sql">
+<p class="sql-q" id="sql-q"><b>SELECT</b> email, linkedin, github <b>FROM</b> gold.vitor_marinho <b>WHERE</b> vaga = 'Engenheiro de Dados';</p>
+      <div class="sql-res" id="sql-res">
+        <div class="meta">1 linha</div>
+        <div class="tw">
+          <table>
+            <thead><tr><th>email</th><th>linkedin</th><th>github</th></tr></thead>
+            <tbody><tr>
+              <td><a href="mailto:vitomarinho6@gmail.com" id="email">vitomarinho6@gmail.com</a><button class="copy" id="copy" type="button">copiar</button></td>
+              <td><a href="https://www.linkedin.com/in/vitor-marinho/" target="_blank" rel="noopener">/in/vitor-marinho</a></td>
+              <td><a href="https://github.com/VitorSMarinho" target="_blank" rel="noopener">VitorSMarinho</a></td>
+            </tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p class="lede">Aberto a vagas de Engenharia de Dados, CLT ou PJ, remoto ou híbrido.</p>
+    <div class="ctas"><a class="btn primary" href="/CV_Vitor_Marinho_Engenheiro_de_Dados.pdf" download>Baixar currículo (PDF)</a></div>
+  </section>
+
+  <footer class="wrap"><span>Vitor Marinho · Engenheiro de Dados &amp; IA</span><span>2026</span></footer>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  /* mola criticamente amortecida (damping 1) seguindo a rolagem */
+  function Spring(onUpdate) { this.x = 0; this.v = 0; this.t = 0; this.raf = 0; this.last = 0; this.onUpdate = onUpdate; this.response = 0.35; }
+  Spring.prototype.to = function (t) {
+    this.t = t;
+    if (reduce) { this.x = t; this.onUpdate(t); return; }
+    if (!this.raf) { this.last = performance.now(); this.raf = requestAnimationFrame(this.tick.bind(this)); }
+  };
+  Spring.prototype.tick = function (now) {
+    var dt = Math.min((now - this.last) / 1000, 1 / 30); this.last = now;
+    var k = Math.pow(2 * Math.PI / this.response, 2), c = 4 * Math.PI / this.response;
+    var n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+    for (var i = 0; i < n; i++) { this.v += (-k * (this.x - this.t) - c * this.v) * h; this.x += this.v * h; }
+    if (Math.abs(this.x - this.t) < 0.0005 && Math.abs(this.v) < 0.001) { this.x = this.t; this.v = 0; this.raf = 0; this.onUpdate(this.x); return; }
+    this.onUpdate(this.x);
+    this.raf = requestAnimationFrame(this.tick.bind(this));
+  };
+
+  /* refinaria */
+  var ref = document.getElementById('refinaria');
+  var fields = Array.prototype.slice.call(ref.querySelectorAll('.field'));
+  var checks = Array.prototype.slice.call(ref.querySelectorAll('.checks li'));
+  var stages = Array.prototype.slice.call(ref.querySelectorAll('.stages li'));
+  var gold = document.getElementById('goldcard');
+  var layerLabel = document.getElementById('ref-layer');
+  var hint = document.getElementById('scroll-hint');
+  var names = ['bronze', 'silver', 'gold'];
+  var lastStage = -1;
+  function render(s) {
+    fields.forEach(function (f) { f.classList.toggle('done', s >= +f.dataset.t); });
+    checks.forEach(function (c) { c.classList.toggle('on', s >= +c.dataset.t); });
+    var stage = s < 0.18 ? 0 : s < 0.64 ? 1 : 2;
+    if (stage !== lastStage) {
+      lastStage = stage;
+      stages.forEach(function (li, i) { li.classList.toggle('on', i === stage); });
+      layerLabel.textContent = 'camada: ' + names[stage];
+    }
+    var g = Math.max(0, Math.min(1, (s - 0.62) / 0.22));
+    gold.style.opacity = String(0.12 + 0.88 * g);
+    gold.style.transform = 'translateY(' + ((1 - g) * 18) + 'px) scale(' + (0.97 + 0.03 * g) + ')';
+    hint.style.opacity = String(1 - Math.min(1, s * 3));
+  }
+  var refSpring = new Spring(render);
+  function refProgress() {
+    var r = ref.getBoundingClientRect();
+    var span = r.height - window.innerHeight;
+    if (span <= 0) return 1;
+    return Math.max(0, Math.min(1, (window.innerHeight * 0.35 - r.top) / span));
+  }
+  if (reduce) { render(1); hint.hidden = true; } else { refSpring.x = refProgress(); render(refSpring.x); }
+
+  /* progresso da nav e seção ativa */
+  var bar = document.getElementById('progress');
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav.top ul a'));
+  var targets = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+    var cur = -1;
+    targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top < window.innerHeight * 0.4) cur = i; });
+    navLinks.forEach(function (a, i) { a.classList.toggle('on', i === cur); });
+    if (!reduce) refSpring.to(refProgress());
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* contato: a consulta roda quando aparece */
+  var sql = document.getElementById('sql'), q = document.getElementById('sql-q');
+  var full = q.innerHTML;
+  function runQuery() {
+    if (reduce || !('IntersectionObserver' in window)) { sql.classList.remove('pending'); return; }
+    var plain = q.textContent, i = 0;
+    q.innerHTML = '<span class="caret">&nbsp;</span>';
+    (function type() {
+      i += 2;
+      q.textContent = plain.slice(0, i);
+      q.insertAdjacentHTML('beforeend', '<span class="caret">&nbsp;</span>');
+      if (i < plain.length) setTimeout(type, 16);
+      else { q.innerHTML = full; setTimeout(function () { sql.classList.remove('pending'); }, 160); }
+    })();
+  }
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); runQuery(); } }, { threshold: 0.6 });
+    io.observe(sql);
+  } else { sql.classList.remove('pending'); }
+
+  /* copiar e-mail */
+  var copyBtn = document.getElementById('copy'), email = document.getElementById('email');
+  copyBtn.addEventListener('click', function () {
+    var done = function () { copyBtn.textContent = 'copiado'; setTimeout(function () { copyBtn.textContent = 'copiar'; }, 1600); };
+    var fallback = function () { var r = document.createRange(); r.selectNodeContents(email); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = 'selecionado'; };
+    try { navigator.clipboard.writeText(email.textContent).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
 </html>
