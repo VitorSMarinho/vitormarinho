@@ -1,18 +1,13 @@
-# Vitor Marinho — Portfólio
+# Portfólio · Vitor Marinho
 
-Portfólio pessoal de Vitor Marinho, Engenheiro de Dados e fundador da Agient.
+Engenheiro de Dados & IA. No ar em https://vitormarinho.vercel.app
 
-## Stack
+Página única em HTML, CSS e JavaScript puros (`index.html`), sem framework. O Vite só copia a página e os arquivos de `public/` para `dist/` no build da Vercel.
 
-Vite + React + TypeScript + shadcn/ui + Tailwind CSS + Framer Motion.
+- `public/CV_Vitor_Marinho_Engenheiro_de_Dados.pdf`: currículo baixado pelos botões da página.
 
-## Rodando localmente
-
-```sh
+```bash
 npm install
-npm run dev
+npm run dev     # local
+npm run build   # gera dist/
 ```
-
-## Deploy
-
-Publicado na Vercel a partir do branch `main` (deploy automático a cada push).
