@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vitor Marinho · Ingeniero de Datos &amp; IA</title>
-<meta name="description" content="Ingeniero de Datos desde 2023, con experiencia en Azure Synapse, Azure Data Lake, Data Factory, Databricks, PySpark y Microsoft Fabric. Pipelines que entregan datos confiables al negocio y a la IA.">
+<title>Vitor Marinho · Ingeniero de IA &amp; Datos</title>
+<meta name="description" content="Ingeniero de IA y Datos desde 2023: agentes de IA, RAG y evaluación, además de pipelines en Databricks, Azure Synapse y Data Factory. Clientes CBMM y A.C.Camargo Cancer Center.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="canonical" href="https://vitormarinho.vercel.app/es/">
@@ -15,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://vitormarinho.vercel.app/es/">
-<meta property="og:title" content="Vitor Marinho · Ingeniero de Datos &amp; IA">
-<meta property="og:description" content="Ingeniero de Datos desde 2023: Databricks, PySpark, Delta Lake, Azure Synapse y Data Factory. Clientes CBMM y A.C.Camargo Cancer Center.">
+<meta property="og:title" content="Vitor Marinho · Ingeniero de IA &amp; Datos">
+<meta property="og:description" content="Ingeniero de IA y Datos desde 2023: agentes de IA, RAG y evaluación, además de pipelines en Databricks, Azure Synapse y Data Factory. Clientes CBMM y A.C.Camargo Cancer Center.">
 <meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,15 +51,17 @@
 <main id="topo">
 
   <header class="wrap hero">
-    <span class="status"><i></i>Disponible ahora · empleado o contratista · remoto o híbrido</span>
+    <span class="status"><i></i>Disponible ahora · empleado, contratista o residencia corporativa · remoto o híbrido</span>
     <h1>Vitor<br><em>Marinho</em></h1>
-    <p class="role">Ingeniero de Datos &amp; IA</p>
-    <p class="lede">Construyo pipelines y Lakehouses en Azure y Databricks que entregan datos confiables al negocio, listos para alimentar RAG y agentes de IA.</p>
+    <p class="role">Ingeniero de IA &amp; Datos</p>
+    <p class="lede">Construyo agentes de IA y pipelines de datos que llegan a producción, con evaluación, costo medido y datos confiables por debajo.</p>
     <ul class="facts" aria-label="Resumen">
       <li>En datos <b>desde 2023</b></li>
       <li>ex-<b>UPBI</b> Data &amp; AI</li>
-      <li>Databricks · PySpark · Delta Lake</li>
-      <li>Azure Synapse · Data Factory</li>
+      <li>LLMs · RAG · LangGraph</li>
+      <li>Python · FastAPI · pgvector</li>
+      <li>Databricks · Azure</li>
+      <li>Graduación en jun 2026</li>
       <li>Taquaritinga, SP, Brasil</li>
       <li>Inglés técnico (lectura)</li>
     </ul>
@@ -118,10 +120,11 @@
         <span class="when">abr 2026 · actual</span>
         <div class="job">
           <h3>Ingeniero de Datos e IA</h3>
-          <span class="org"><b>Independiente</b> · contratista · proyectos para pequeñas empresas, mientras busco una posición como empleado o contratista</span>
+          <span class="org"><b>Independiente</b> · contratista · proyectos de IA y datos para pequeñas empresas, mientras busco una posición</span>
           <ul>
-            <li>Modelé e integré datos en PostgreSQL/Supabase para sistemas multi-tenant de agenda y menú digital en producción, con backend en Python.</li>
-            <li>Construí la capa de memoria en Postgres para agentes conversacionales, que consultan datos reales (historial, reglas de negocio, agenda) antes de responder.</li>
+            <li>Construí agentes de IA con tool calling y memoria de corto y largo plazo en Postgres, que consultan datos reales (historial, reglas de negocio, agenda) antes de responder.</li>
+            <li>Implementé un asistente virtual en WhatsApp que califica al cliente, consulta la agenda y pasa a una persona cuando hace falta, y un agente de calificación de leads con LLM, n8n y Supabase.</li>
+            <li>Desarrollé backends en Python (FastAPI) y APIs REST para sistemas multi-tenant de agenda y menú digital en producción, con PostgreSQL/Supabase.</li>
             <li>Integré sistemas vía API y automatizaciones en n8n, con revisión por pull request.</li>
           </ul>
         </div>
@@ -150,9 +153,52 @@
 
   <section class="wrap section" id="projetos" aria-labelledby="proj-title">
     <div class="sec-head">
-      <span class="eyebrow">Proyectos <span class="tbl">gold.proyectos · 6 registros</span></span>
+      <span class="eyebrow">Proyectos <span class="tbl">gold.proyectos · 8 registros</span></span>
       <h2 class="big" id="proj-title">Lo que salió del pipeline.</h2>
     </div>
+    <h3 class="group first">IA aplicada <span>agentes, RAG y evaluación</span></h3>
+    <div class="cases">
+      <article class="case lead">
+        <div class="case-top"><span class="tag">en línea</span><span class="tag plain">datos ficticios</span><span class="tag plain">IA en producción</span></div>
+        <h3>ARIA Health: asistente de IA con RAG, agentes y evaluación</h3>
+        <p>De los datos clínicos ficticios a un agente que responde con fuente. Un pipeline Medallion en Databricks alimenta una base con pgvector, y agentes con tool calling, servidos por una API FastAPI, la consultan antes de responder.</p>
+        <dl>
+          <div><dt>Fuente</dt><dd>Datos clínicos ficticios en CSV.</dd></div>
+          <div><dt>Arquitectura</dt><dd class="flow">Databricks <b>bronze → silver → gold</b> → Supabase + pgvector → agentes con tool calling (FastAPI) → Next.js</dd></div>
+          <div><dt>Agentes y RAG</dt><dd>Cinco agentes especializados. RAG con embeddings y búsqueda vectorial en pgvector, y tool calling para consultar datos estructurados.</dd></div>
+          <div><dt>Evaluación</dt><dd>Suite de evals, determinista y con un LLM como juez: 5 de 5 casos aprobados.</dd></div>
+          <div><dt>Observabilidad</dt><dd>Tokens, latencia y costo medidos en cada respuesta del agente.</dd></div>
+          <div><dt>Decisión</dt><dd>RAG desactivado en producción por costo, y activado bajo demanda. Funciona de punta a punta en local. Trade-off documentado en el README.</dd></div>
+          <div><dt>Stack</dt><dd class="flow">Python · FastAPI · Pydantic · pgvector · Supabase · Databricks · Next.js · Vercel</dd></div>
+          <div><dt>Estado</dt><dd>En línea, con datos ficticios. Código público, con versión en inglés.</dd></div>
+        </dl>
+        <div class="links"><a href="https://aria-health-vm.vercel.app" target="_blank" rel="noopener">Demo</a><a href="https://aria-health-vm.vercel.app/?lang=en" target="_blank" rel="noopener">Demo en inglés</a><a href="https://github.com/VitorSMarinho/aria-health-vm" target="_blank" rel="noopener">Código</a></div>
+      </article>
+
+      <article class="case">
+        <div class="case-top"><span class="tag">proyecto personal</span><span class="tag plain">datos públicos</span></div>
+        <h3>Agente Analista Financiero: LangGraph y RAG</h3>
+        <dl>
+          <div><dt>Fuente</dt><dd>API pública del Banco Central, consultada en vivo.</dd></div>
+          <div><dt>Arquitectura</dt><dd class="flow">pregunta → <b>LangGraph</b> con ramificación condicional → búsqueda híbrida (filtro relacional + vectorial HNSW) en PostgreSQL/pgvector → re-ranking por LLM → respuesta con fuente</dd></div>
+          <div><dt>Guardrail</dt><dd>Cita obligatoria de la fuente y rechazo de recomendaciones de inversión.</dd></div>
+          <div><dt>Evaluación</dt><dd>Retrieval evaluado con respuestas de referencia y pruebas automatizadas.</dd></div>
+          <div><dt>Estado</dt><dd>Código disponible a pedido.</dd></div>
+        </dl>
+      </article>
+
+      <article class="case">
+        <div class="case-top"><span class="tag">proyecto personal</span><span class="tag plain">datos sintéticos</span></div>
+        <h3>MANDATO: delegación verificable para agentes de IA</h3>
+        <dl>
+          <div><dt>Idea</dt><dd>Una delegación escrita en portugués se convierte en una política formal, aplicada fuera del modelo.</dd></div>
+          <div><dt>Arquitectura</dt><dd class="flow"><b>gateway MCP</b> aplica la política → orquestación en <b>LangGraph</b> → aprobación humana → recibo auditable</dd></div>
+          <div><dt>Evaluación</dt><dd>20 pruebas automatizadas y una compuerta de evaluación contra inyección de prompt.</dd></div>
+          <div><dt>Estado</dt><dd>Proyecto personal, con datos sintéticos.</dd></div>
+        </dl>
+      </article>
+    </div>
+    <h3 class="group">Ingeniería de datos <span>Lakehouse, Azure y gobernanza</span></h3>
     <div class="cases">
       <article class="case lead">
         <div class="case-top"><span class="tag">profesional · UPBI</span><span class="tag plain">CBMM · minería y metalurgia</span><span class="tag plain">SAP</span></div>
@@ -213,19 +259,7 @@
         </dl>
       </article>
 
-      <article class="case">
-        <div class="case-top"><span class="tag">en línea</span><span class="tag plain">datos ficticios</span></div>
-        <h3>ARIA Health</h3>
-        <dl>
-          <div><dt>Fuente</dt><dd>Datos clínicos ficticios en CSV.</dd></div>
-          <div><dt>Arquitectura</dt><dd class="flow">Databricks <b>bronze → silver → gold</b> → Supabase + pgvector → agente con tool calling (FastAPI) → Next.js</dd></div>
-          <div><dt>Decisión</dt><dd>RAG desactivado en producción por el límite de memoria del plan gratuito; funciona de punta a punta en local. Trade-off documentado en el README.</dd></div>
-          <div><dt>Calidad</dt><dd>Suite de evals del agente (5 de 5 casos) y observabilidad de tokens, latencia y costo.</dd></div>
-        </dl>
-        <div class="links"><a href="https://aria-health-vm.vercel.app" target="_blank" rel="noopener">Demo</a><a href="https://github.com/VitorSMarinho/aria-health-vm" target="_blank" rel="noopener">Código</a></div>
-      </article>
-
-      <article class="case">
+      <article class="case wide">
         <div class="case-top"><span class="tag">en desarrollo</span><span class="tag plain">datos públicos</span></div>
         <h3>payments-data-harness</h3>
         <dl>
@@ -237,7 +271,6 @@
         <div class="links"><a href="https://github.com/VitorSMarinho/payments-data-harness" target="_blank" rel="noopener">Código</a></div>
       </article>
     </div>
-    <p class="aside-line">También construí el Agente Analista Financiero: datos en vivo del Banco Central con búsqueda híbrida en PostgreSQL/pgvector, orquestado con LangGraph. Código disponible a pedido.</p>
   </section>
 
   <section class="wrap section" id="stack" aria-labelledby="stack-title">
@@ -250,12 +283,12 @@
         <caption>DESCRIBE vitor_marinho.stack</caption>
         <thead><tr><th>columna</th><th>uso</th><th>valores</th></tr></thead>
         <tbody>
+          <tr><td>ia_aplicada</td><td>principal</td><td>LLMs (OpenAI, Claude, Gemini, DeepSeek, Groq), prompt engineering, RAG, embeddings, pgvector, tool calling, agentes, LangChain, LangGraph, MCP, evaluación de LLM (evals), observabilidad de costo y latencia</td></tr>
           <tr><td>ingenieria_datos</td><td>principal</td><td>Azure Synapse Analytics, Azure Data Lake Storage Gen2, Databricks, Unity Catalog, Apache Spark, PySpark, Delta Lake, Medallion, Azure Data Factory, Logic Apps, Microsoft Fabric, Power BI (entrega)</td></tr>
-          <tr><td>lenguajes</td><td>principal</td><td>Python, SQL</td></tr>
+          <tr><td>lenguajes</td><td>principal</td><td>Python (FastAPI, Pydantic, pytest), SQL, TypeScript</td></tr>
           <tr><td>bases_datos</td><td>principal</td><td>PostgreSQL, pgvector, Supabase, Azure SQL, Oracle</td></tr>
           <tr><td>cloud_devops</td><td>principal</td><td>Azure, Azure DevOps, Azure Monitor, Log Analytics, GitHub Actions, Git, Docker, AWS</td></tr>
           <tr><td>gobernanza</td><td>principal</td><td>calidad y linaje de datos, RBAC, LGPD, anonimización de PII</td></tr>
-          <tr><td>ia_aplicada</td><td>diferencial</td><td>RAG, LangChain, LangGraph, evaluación de LLM</td></tr>
         </tbody>
       </table>
     </div>
@@ -278,7 +311,7 @@
       <h2 class="big" id="contact-title">Datos listos para consumo.</h2>
     </div>
     <div class="sql pending" id="sql">
-<p class="sql-q" id="sql-q"><b>SELECT</b> email, linkedin, github <b>FROM</b> gold.vitor_marinho <b>WHERE</b> puesto = 'Ingeniero de Datos';</p>
+<p class="sql-q" id="sql-q"><b>SELECT</b> email, linkedin, github <b>FROM</b> gold.vitor_marinho <b>WHERE</b> puesto IN ('Ingeniero de IA', 'Ingeniero de Datos');</p>
       <div class="sql-res" id="sql-res">
         <div class="meta">1 fila</div>
         <div class="tw">
@@ -293,11 +326,11 @@
         </div>
       </div>
     </div>
-    <p class="lede">Abierto a puestos de Ingeniería de Datos, como empleado o contratista, remoto o híbrido.</p>
+    <p class="lede">Abierto a puestos de Ingeniería de IA y de Datos, como empleado, contratista o residente corporativo, remoto o híbrido.</p>
     <div class="ctas"><a class="btn primary" href="/CV_Vitor_Marinho_Engenheiro_de_Dados.pdf" download>Descargar CV (PDF, en portugués)</a></div>
   </section>
 
-  <footer class="wrap"><span>Vitor Marinho · Ingeniero de Datos &amp; IA</span><span>2026</span></footer>
+  <footer class="wrap"><span>Vitor Marinho · Ingeniero de IA &amp; Datos</span><span>2026</span></footer>
 </main>
 
 <script src="/static/site.js" defer></script>
